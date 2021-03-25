@@ -1,0 +1,6 @@
+*~
+*.bak
+*.user
+*.o
+build*/
+*build*/
