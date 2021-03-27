@@ -5,8 +5,8 @@ This is a plugin for Qmmp (1.4.0 or greater) visual.
 The following packages are required, including development headers,
 which some vendors split into separate packages:
 
-• qmmp
-• qt5
+- qmmp
+- qt5
 
 To build, run Qt5's qmake (often installed as qmake-qt5) and then build
 with make:
