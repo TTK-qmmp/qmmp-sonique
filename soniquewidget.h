@@ -19,21 +19,19 @@
 #ifndef SONIQUEWIDGET_H
 #define SONIQUEWIDGET_H
 
-#include <QWidget>
 #include "visual.h"
 #include "kiss_fft.h"
+#include <qmmp/visual.h>
 
 /*!
  * @author Greedysky <greedysky@163.com>
  */
-class SoniqueWidget : public QWidget
+class SoniqueWidget : public Visual
 {
     Q_OBJECT
 public:
     explicit SoniqueWidget(QWidget *parent = nullptr);
     virtual ~SoniqueWidget();
-
-    void addBuffer(float *left, float *right);
 
 public slots:
     void nextPreset();
@@ -41,10 +39,11 @@ public slots:
     void randomPreset();
 
 protected:
-    virtual void resizeEvent(QResizeEvent *event) override;
-    virtual void paintEvent(QPaintEvent *event) override;
+    virtual void resizeEvent(QResizeEvent *e) override final;
+    virtual void paintEvent(QPaintEvent *e) override final;
+    virtual void contextMenuEvent(QContextMenuEvent *) override final;
 
-private:
+    void process(float *left, float *right);
     void initialize();
     void closePreset();
     void generatePreset();

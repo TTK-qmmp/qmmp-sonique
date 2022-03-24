@@ -2,14 +2,14 @@
 #include <qmmp/qmmp.h>
 
 #include <QDir>
+#include <QMenu>
 #include <QPainter>
 #include <QDateTime>
-#include <QApplication>
 
 #ifdef Q_OS_UNIX
-#include <dlfcn.h>
+#  include <dlfcn.h>
 #else
-#include <qt_windows.h>
+#  include <qt_windows.h>
 #endif
 
 typedef VisInfo* (*SoniqueModule)();
@@ -17,16 +17,16 @@ typedef VisInfo* (*SoniqueModule)();
 #define SPECTRUM_SIZE   256
 #define FFT_SIZE        (SPECTRUM_SIZE * 2)
 
-void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
+static void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
 {
     const float zoom = 0.8;
     unsigned int *vtp = vt;
     //zoom
     const float centerX = xs / 2;
     const float centerY = ys / 2;
-    for(int y=0; y<ys; y++)
+    for(int y = 0; y < ys; ++y)
     {
-        for(int x=0; x<xs; x++)
+        for(int x = 0; x < xs; ++x)
         {
             const int origX = (int)((x - centerX) * zoom + centerX);
             const int origY = (int)((y - centerY) * zoom + centerY);
@@ -36,9 +36,9 @@ void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
     //blur and darkness
     const int s = 3;
     const int darkness = 24;
-    for(int y=0; y<ys; y++)
+    for(int y = 0; y < ys; ++y)
     {
-        for(int x=0; x<xs; x++)
+        for(int x = 0; x < xs; ++x)
         {
             if(y == 0 || x == 0 || x == (xs - 1) || y == (ys - 1))
             {
@@ -48,11 +48,11 @@ void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
 
             int t[4] = {0};
             vtp = vt + xs * (y - s / 2) + (x - s / 2);
-            for(int i=0; i<s; i++)
+            for(int i = 0; i < s; ++i)
             {
-                for(int j=0; j<s; j++)
+                for(int j = 0; j < s; ++j)
                 {
-                    for(int k=0; k<4; k++)
+                    for(int k = 0; k < 4; ++k)
                     {
                         t[k] += ((unsigned char*)vtp)[k];
                     }
@@ -61,7 +61,7 @@ void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
                 vtp += xs - s;
             }
 
-            for(int k=0; k<4; k++)
+            for(int k = 0; k < 4; ++k)
             {
                 ((unsigned char*)(&v[x + xs * y]))[k] = std::max(t[k] / (s * s) - darkness, 0);
             }
@@ -69,7 +69,7 @@ void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
     }
 }
 
-QFileInfoList getFileListByDir(const QString &dpath, const QStringList &filter, bool recursively)
+static QFileInfoList fileListByPath(const QString &dpath, const QStringList &filter)
 {
     QDir dir(dpath);
     if(!dir.exists())
@@ -77,14 +77,11 @@ QFileInfoList getFileListByDir(const QString &dpath, const QStringList &filter, 
         return QFileInfoList();
     }
 
-    QFileInfoList fileList = dir.entryInfoList(filter, QDir::Files | QDir::Hidden | QDir::NoSymLinks);
-    if(recursively)
+    QFileInfoList fileList = dir.entryInfoList(filter, QDir::Files | QDir::Hidden);
+    const QFileInfoList& folderList = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for(const QFileInfo &fin : folderList)
     {
-        const QFileInfoList& folderList = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
-        for(const QFileInfo &file : folderList)
-        {
-            fileList.append(getFileListByDir(file.absoluteFilePath(), filter, recursively));
-        }
+        fileList.append(fileListByPath(fin.absoluteFilePath(), filter));
     }
 
     return fileList;
@@ -92,8 +89,10 @@ QFileInfoList getFileListByDir(const QString &dpath, const QStringList &filter, 
 
 
 SoniqueWidget::SoniqueWidget(QWidget *parent)
-    : QWidget(parent)
+    : Visual(parent)
 {
+    setlocale(LC_NUMERIC, "C"); //fixes problem with non-english locales
+
     setMinimumSize(580, 320);
     qsrand(QDateTime::currentMSecsSinceEpoch());
 
@@ -115,69 +114,6 @@ SoniqueWidget::~SoniqueWidget()
     kiss_fft_free(m_kiss_cfg);
     free(m_in_freq_data);
     free(m_out_freq_data);
-}
-
-void SoniqueWidget::addBuffer(float *left, float *right)
-{
-    if(!m_sonique)
-    {
-       return;
-    }
-
-    if(m_sonique->lRequired & VI_WAVEFORM)
-    {
-        for(int i=0; i<FFT_SIZE; i++)
-        {
-            m_visData->Waveform[0][i] = left[i] * 64.0;
-            m_visData->Waveform[1][i] = right[i] * 64.0;
-        }
-    }
-
-    if(m_sonique->lRequired & VI_SPECTRUM)
-    {
-        for(int i=0; i<FFT_SIZE; i++)
-        {
-            m_in_freq_data[i].r = left[i];
-            m_in_freq_data[i].i = 0;
-        }
-        kiss_fft(m_kiss_cfg, m_in_freq_data, m_out_freq_data);
-        m_visData->Spectrum[0][0] = std::min(255, int(m_out_freq_data[0].r * 512));
-        for(int j=0; j<SPECTRUM_SIZE; j++)
-        {
-            const int value = sqrt(pow((((m_out_freq_data[j].r) / 512) * 2), 2) + pow((((m_out_freq_data[j].i) / 512) * 2), 2)) * 512;
-            m_visData->Spectrum[0][j] = std::min(255, value);
-        }
-
-        for(int i=0; i<FFT_SIZE; i++)
-        {
-            m_in_freq_data[i].r = right[i];
-            m_in_freq_data[i].i = 0;
-        }
-        kiss_fft(m_kiss_cfg, m_in_freq_data, m_out_freq_data);
-        m_visData->Spectrum[1][0] = std::min(255, int(m_out_freq_data[0].r * 512));
-        for(int j=0; j<SPECTRUM_SIZE; j++)
-        {
-            const int value = sqrt(pow((((m_out_freq_data[j].r) / 512) * 2), 2) + pow((((m_out_freq_data[j].i) / 512) * 2), 2)) * 512;
-            m_visData->Spectrum[1][j] = std::min(255, value);
-        }
-    }
-
-    const int w = width();
-    const int h = height();
-
-    if(m_sonique->lRequired & SONIQUEVISPROC)
-    {
-        if(!m_visProc)
-        {
-            m_visProc = new unsigned int[w * h];
-        }
-        customZoomAndBlur(m_texture, m_visProc, w, h);
-    }
-
-    m_visData->MillSec = QDateTime::currentMSecsSinceEpoch();
-    m_sonique->Render(m_texture, w, h, w, m_visData);
-
-    update();
 }
 
 void SoniqueWidget::nextPreset()
@@ -205,14 +141,14 @@ void SoniqueWidget::previousPreset()
     m_currentIndex--;
     if(m_currentIndex < 0)
     {
-        m_currentIndex = m_presetList.count();
+        m_currentIndex = m_presetList.count() - 1;
     }
     generatePreset();
 }
 
-void SoniqueWidget::resizeEvent(QResizeEvent *event)
+void SoniqueWidget::resizeEvent(QResizeEvent *e)
 {
-    QWidget::resizeEvent(event);
+    QWidget::resizeEvent(e);
 
     if(!m_sonique)
     {
@@ -226,12 +162,88 @@ void SoniqueWidget::resizeEvent(QResizeEvent *event)
     m_texture = new unsigned int[width() * height()]{0};
 }
 
-void SoniqueWidget::paintEvent(QPaintEvent *event)
+void SoniqueWidget::paintEvent(QPaintEvent *e)
 {
-    QWidget::paintEvent(event);
+    QWidget::paintEvent(e);
 
     QPainter painter(this);
     painter.drawImage(rect(), QImage((uchar*)m_texture, width(), height(), QImage::Format_RGB32));
+}
+
+void SoniqueWidget::contextMenuEvent(QContextMenuEvent *)
+{
+    QMenu menu(this);
+    menu.addAction(tr("&Next Preset"), this, SLOT(nextPreset()), tr("N"));
+    menu.addAction(tr("&Previous Preset"), this, SLOT(previousPreset()), tr("P"));
+    menu.addAction(tr("&Random Preset"), this, SLOT(randomPreset()), tr("R"));
+    menu.exec(QCursor::pos());
+}
+
+void SoniqueWidget::process(float *left, float *right)
+{
+    if(!m_sonique)
+    {
+       return;
+    }
+
+    if(m_sonique->lRequired & VI_WAVEFORM)
+    {
+        for(int i = 0; i < FFT_SIZE; ++i)
+        {
+            m_visData->Waveform[0][i] = left[i] * 64.0;
+            m_visData->Waveform[1][i] = right[i] * 64.0;
+        }
+    }
+
+    if(m_sonique->lRequired & VI_SPECTRUM)
+    {
+        for(int i = 0; i < FFT_SIZE; ++i)
+        {
+            m_in_freq_data[i].r = left[i];
+            m_in_freq_data[i].i = 0;
+        }
+
+        kiss_fft(m_kiss_cfg, m_in_freq_data, m_out_freq_data);
+        m_visData->Spectrum[0][0] = std::min(255, int(m_out_freq_data[0].r * 512));
+
+        for(int i = 0; i < SPECTRUM_SIZE; ++i)
+        {
+            const int value = sqrt(pow((((m_out_freq_data[i].r) / 512) * 2), 2) + pow((((m_out_freq_data[i].i) / 512) * 2), 2)) * 512;
+            m_visData->Spectrum[0][i] = std::min(255, value);
+        }
+
+        for(int i = 0; i < FFT_SIZE; ++i)
+        {
+            m_in_freq_data[i].r = right[i];
+            m_in_freq_data[i].i = 0;
+        }
+
+        kiss_fft(m_kiss_cfg, m_in_freq_data, m_out_freq_data);
+        m_visData->Spectrum[1][0] = std::min(255, int(m_out_freq_data[0].r * 512));
+
+        for(int i = 0; i < SPECTRUM_SIZE; ++i)
+        {
+            const int value = sqrt(pow((((m_out_freq_data[i].r) / 512) * 2), 2) + pow((((m_out_freq_data[i].i) / 512) * 2), 2)) * 512;
+            m_visData->Spectrum[1][i] = std::min(255, value);
+        }
+    }
+
+    const int w = width();
+    const int h = height();
+
+    if(m_sonique->lRequired & SONIQUEVISPROC)
+    {
+        if(!m_visProc)
+        {
+            m_visProc = new unsigned int[w * h];
+        }
+        customZoomAndBlur(m_texture, m_visProc, w, h);
+    }
+
+    m_visData->MillSec = QDateTime::currentMSecsSinceEpoch();
+    m_sonique->Render(m_texture, w, h, w, m_visData);
+
+    update();
 }
 
 void SoniqueWidget::randomPreset()
@@ -247,11 +259,11 @@ void SoniqueWidget::randomPreset()
 
 void SoniqueWidget::initialize()
 {
-    const QString &dir = qApp->applicationDirPath() + "/sonique";
-    const QFileInfoList folderList(getFileListByDir(dir, QStringList() << "*.svp", true));
-    for(const QFileInfo &info : folderList)
+    const QString &dir = Qmmp::configDir() + "/sonique";
+    const QFileInfoList files(fileListByPath(dir, QStringList() << "*.svp"));
+    for(const QFileInfo &fin : files)
     {
-        m_presetList << info.absoluteFilePath();
+        m_presetList << fin.absoluteFilePath();
     }
 
     randomPreset();
@@ -306,10 +318,10 @@ void SoniqueWidget::generatePreset()
     m_sonique = module();
 
     const QString &dir = QFileInfo(m_presetList[m_currentIndex]).absolutePath();
-    const QFileInfoList iniList(getFileListByDir(dir, QStringList() << "*.ini", true));
+    const QFileInfoList iniList(fileListByPath(dir, QStringList() << "*.ini"));
     if(!iniList.isEmpty())
     {
-        char *init_path = iniList.first().absoluteFilePath().toLocal8Bit().data();
+        char *init_path = iniList.front().absoluteFilePath().toLocal8Bit().data();
         m_sonique->OpenSettings(init_path);
         qDebug("[SoniqueWidget] ini url is %s", init_path);
     }

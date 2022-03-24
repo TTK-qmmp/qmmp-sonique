@@ -19,9 +19,8 @@
 #ifndef VISUALSONIQUEFACTORY_H
 #define VISUALSONIQUEFACTORY_H
 
-#include <QObject>
-#include <qmmp/visualfactory.h>
 #include <qmmp/visual.h>
+#include <qmmp/visualfactory.h>
 
 /*!
  * @author Greedysky <greedysky@163.com>

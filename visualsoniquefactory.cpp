@@ -1,5 +1,5 @@
 #include "visualsoniquefactory.h"
-#include "soniqueplugin.h"
+#include "soniquewidget.h"
 
 #include <QMessageBox>
 
@@ -14,7 +14,7 @@ VisualProperties VisualSoniqueFactory::properties() const
 
 Visual *VisualSoniqueFactory::create(QWidget *parent)
 {
-    return new SoniquePlugin(parent);
+    return new SoniqueWidget(parent);
 }
 
 QDialog *VisualSoniqueFactory::createConfigDialog(QWidget *parent)
