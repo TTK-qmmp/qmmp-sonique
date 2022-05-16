@@ -1,4 +1,4 @@
-include(../../plugins.pri)
+include($$PWD/../../plugins.pri)
 
 QT += opengl
 TARGET = $$PLUGINS_PREFIX/Visual/sonique

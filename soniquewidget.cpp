@@ -92,6 +92,7 @@ SoniqueWidget::SoniqueWidget(QWidget *parent)
     : Visual(parent)
 {
     setlocale(LC_NUMERIC, "C"); //fixes problem with non-english locales
+    setWindowTitle(tr("Sonique Widget"));
 
     setMinimumSize(580, 320);
     qsrand(QDateTime::currentMSecsSinceEpoch());
@@ -128,6 +129,7 @@ void SoniqueWidget::nextPreset()
     {
         m_currentIndex = 0;
     }
+
     generatePreset();
 }
 
@@ -143,13 +145,12 @@ void SoniqueWidget::previousPreset()
     {
         m_currentIndex = m_presetList.count() - 1;
     }
+
     generatePreset();
 }
 
-void SoniqueWidget::resizeEvent(QResizeEvent *e)
+void SoniqueWidget::resizeEvent(QResizeEvent *)
 {
-    QWidget::resizeEvent(e);
-
     if(!m_sonique)
     {
         return;
@@ -162,11 +163,10 @@ void SoniqueWidget::resizeEvent(QResizeEvent *e)
     m_texture = new unsigned int[width() * height()]{0};
 }
 
-void SoniqueWidget::paintEvent(QPaintEvent *e)
+void SoniqueWidget::paintEvent(QPaintEvent *)
 {
-    QWidget::paintEvent(e);
-
     QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
     painter.drawImage(rect(), QImage((uchar*)m_texture, width(), height(), QImage::Format_RGB32));
 }
 
@@ -260,8 +260,8 @@ void SoniqueWidget::randomPreset()
 void SoniqueWidget::initialize()
 {
     const QString &dir = Qmmp::configDir() + "/sonique";
-    const QFileInfoList files(fileListByPath(dir, QStringList() << "*.svp"));
-    for(const QFileInfo &fin : files)
+    const QFileInfoList folderList(fileListByPath(dir, QStringList() << "*.svp"));
+    for(const QFileInfo &fin : folderList)
     {
         m_presetList << fin.absoluteFilePath();
     }
