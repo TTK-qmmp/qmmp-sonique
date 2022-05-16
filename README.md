@@ -12,6 +12,7 @@ To build, run Qt5's qmake (often installed as qmake-qt5) and then build
 with make:
 
 $ qmake-qt5
+
 $ make
 
 To install:
