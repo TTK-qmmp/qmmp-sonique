@@ -25,10 +25,10 @@ QDialog *VisualSoniqueFactory::createConfigDialog(QWidget *parent)
 
 void VisualSoniqueFactory::showAbout(QWidget *parent)
 {
-    QMessageBox::about (parent, tr("About Sonique Visual Plugin"),
-                        tr("Qmmp Sonique Visual Plugin")+"\n"+
-                        tr("This plugin adds Sonique visualization")+"\n"+
-                        tr("Written by: Greedysky <greedysky@163.com>"));
+    QMessageBox::about(parent, tr("About Sonique Visual Plugin"),
+                       tr("Qmmp Sonique Visual Plugin") + "\n" +
+                       tr("This plugin adds Sonique visualization") + "\n" +
+                       tr("Written by: Greedysky <greedysky@163.com>"));
 }
 
 QString VisualSoniqueFactory::translation() const
