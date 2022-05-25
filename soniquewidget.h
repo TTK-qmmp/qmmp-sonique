@@ -34,11 +34,18 @@ public:
     virtual ~SoniqueWidget();
 
 public slots:
+    virtual void start() override final;
+    virtual void stop() override final;
+
+public slots:
     void nextPreset();
     void previousPreset();
     void randomPreset();
+    void updateVisual();
 
 protected:
+    virtual void hideEvent(QHideEvent *e) override final;
+    virtual void showEvent(QShowEvent *e) override final;
     virtual void resizeEvent(QResizeEvent *e) override final;
     virtual void paintEvent(QPaintEvent *e) override final;
     virtual void contextMenuEvent(QContextMenuEvent *) override final;
@@ -63,6 +70,10 @@ protected:
     kiss_fft_cfg m_kiss_cfg;
     kiss_fft_cpx *m_in_freq_data;
     kiss_fft_cpx *m_out_freq_data;
+
+    QTimer *m_timer = nullptr;
+    float m_left[QMMP_VISUAL_NODE_SIZE];
+    float m_right[QMMP_VISUAL_NODE_SIZE];
 
 };
 

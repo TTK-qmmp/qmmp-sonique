@@ -3,6 +3,7 @@
 
 #include <QDir>
 #include <QMenu>
+#include <QTimer>
 #include <QPainter>
 #include <QDateTime>
 
@@ -102,6 +103,10 @@ SoniqueWidget::SoniqueWidget(QWidget *parent)
     m_in_freq_data = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
     m_out_freq_data = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
 
+    m_timer = new QTimer(this);
+    m_timer->setInterval(40);
+    connect(m_timer, SIGNAL(timeout()), SLOT(updateVisual()));
+
     initialize();
 }
 
@@ -115,6 +120,17 @@ SoniqueWidget::~SoniqueWidget()
     kiss_fft_free(m_kiss_cfg);
     free(m_in_freq_data);
     free(m_out_freq_data);
+}
+
+void SoniqueWidget::start()
+{
+    if(isVisible())
+        m_timer->start();
+}
+
+void SoniqueWidget::stop()
+{
+    m_timer->stop();
 }
 
 void SoniqueWidget::nextPreset()
@@ -147,6 +163,25 @@ void SoniqueWidget::previousPreset()
     }
 
     generatePreset();
+}
+
+void SoniqueWidget::updateVisual()
+{
+    if(takeData(m_left, m_right))
+    {
+        process(m_left, m_right);
+        update();
+    }
+}
+
+void SoniqueWidget::hideEvent(QHideEvent *)
+{
+    m_timer->stop();
+}
+
+void SoniqueWidget::showEvent(QShowEvent *)
+{
+    m_timer->start();
 }
 
 void SoniqueWidget::resizeEvent(QResizeEvent *)
