@@ -20,7 +20,7 @@ typedef VisInfo* (*SoniqueModule)();
 
 static void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
 {
-    const float zoom = 0.8;
+    constexpr float zoom = 0.8;
     unsigned int *vtp = vt;
     //zoom
     const float centerX = xs / 2;
@@ -35,8 +35,8 @@ static void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
         }
     }
     //blur and darkness
-    const int s = 3;
-    const int darkness = 24;
+    constexpr int s = 3;
+    constexpr int darkness = 24;
     for(int y = 0; y < ys; ++y)
     {
         for(int x = 0; x < xs; ++x)
