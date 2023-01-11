@@ -125,7 +125,9 @@ SoniqueWidget::~SoniqueWidget()
 void SoniqueWidget::start()
 {
     if(isVisible())
+    {
         m_timer->start();
+    }
 }
 
 void SoniqueWidget::stop()
