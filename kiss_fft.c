@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2010, Mark Borgerding
+Copyright (C) 2003-2010, Mark Borgerding
 
 All rights reserved.
 
@@ -154,7 +154,7 @@ static void kf_bfly5(kiss_fft_cpx * fout, const size_t fstride, const kiss_fft_c
         scratch[5].r = scratch[0].r + S_MUL(scratch[7].r,ya.r) + S_MUL(scratch[8].r,yb.r);
         scratch[5].i = scratch[0].i + S_MUL(scratch[7].i,ya.r) + S_MUL(scratch[8].i,yb.r);
 
-        scratch[6].r =  S_MUL(scratch[10].i,ya.i) + S_MUL(scratch[9].i,yb.i);
+        scratch[6].r = S_MUL(scratch[10].i,ya.i) + S_MUL(scratch[9].i,yb.i);
         scratch[6].i = -S_MUL(scratch[10].r,ya.i) - S_MUL(scratch[9].r,yb.i);
 
         C_SUB(*fout1,scratch[5],scratch[6]);
@@ -184,14 +184,14 @@ static void kf_bfly_generic(kiss_fft_cpx * fout, const size_t fstride, const kis
 
     for( u=0; u<m; ++u ) {
         k=u;
-        for( q1=0 ; q1<p ; ++q1 ) {
+        for( q1=0; q1<p; ++q1 ) {
             scratch[q1] = fout[ k  ];
             C_FIXDIV(scratch[q1],p);
             k += m;
         }
 
         k=u;
-        for( q1=0 ; q1<p ; ++q1 ) {
+        for( q1=0; q1<p; ++q1 ) {
             int twidx=0;
             fout[ k ] = scratch[0];
             for(q=1;q<p;++q ) {
@@ -305,7 +305,7 @@ kiss_fft_cfg kiss_fft_alloc(int nfft,int inverse_fft,void * mem,size_t * lenmem)
     size_t memneeded = sizeof(struct kiss_fft_state)
         + sizeof(kiss_fft_cpx)*(nfft-1); /* twiddle factors*/
 
-    if( lenmem==NULL ) {
+    if(lenmem==NULL ) {
         st = ( kiss_fft_cfg)KISS_FFT_MALLOC( memneeded );
     }else{
         if(mem != NULL && *lenmem >= memneeded)

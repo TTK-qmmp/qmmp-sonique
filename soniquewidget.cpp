@@ -7,12 +7,6 @@
 #include <QPainter>
 #include <QDateTime>
 
-#ifdef Q_OS_UNIX
-#  include <dlfcn.h>
-#else
-#  include <qt_windows.h>
-#endif
-
 typedef VisInfo* (*SoniqueModule)();
 
 #define SPECTRUM_SIZE   256
@@ -99,6 +93,7 @@ SoniqueWidget::SoniqueWidget(QWidget *parent)
     qsrand(QDateTime::currentMSecsSinceEpoch());
 
     m_visData = new VisData;
+    m_instance = new QLibrary;
     m_kiss_cfg = kiss_fft_alloc(FFT_SIZE, 0, nullptr, nullptr);
     m_in_freq_data = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
     m_out_freq_data = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
@@ -112,10 +107,12 @@ SoniqueWidget::SoniqueWidget(QWidget *parent)
 
 SoniqueWidget::~SoniqueWidget()
 {
-    delete m_visData;
-    delete m_visProc;
-
     closePreset();
+
+    delete m_visData;
+    delete m_texture;
+    delete m_visProc;
+    delete m_instance;
 
     kiss_fft_free(m_kiss_cfg);
     free(m_in_freq_data);
@@ -308,17 +305,14 @@ void SoniqueWidget::initialize()
 
 void SoniqueWidget::closePreset()
 {
-    if(m_instance)
+    if(m_instance->isLoaded())
     {
         if(m_sonique && m_sonique->Version > 0)
         {
             m_sonique->Deinit();
         }
-#ifdef Q_OS_UNIX
-        dlclose(m_instance);
-#else
-        FreeLibrary(m_instance);
-#endif
+
+        m_instance->unload();
         m_sonique = nullptr;
     }
 }
@@ -327,25 +321,17 @@ void SoniqueWidget::generatePreset()
 {
     closePreset();
 
-    const char *module_path = qPrintable(m_presetList[m_currentIndex]);
-#ifdef Q_OS_UNIX
-    m_instance = dlopen(module_path, RTLD_LAZY);
-#else
-    m_instance = LoadLibraryA(module_path);
-#endif
-    qDebug("[SoniqueWidget] url is %s", module_path);
+    const QString &module_path = m_presetList[m_currentIndex];
+    qDebug("[SoniqueWidget] url is %s", qPrintable(module_path));
 
-    if(!m_instance)
+    m_instance->setFileName(module_path);
+    if(!m_instance->load())
     {
         qDebug("Could not load the svp file");
         return;
     }
 
-#ifdef Q_OS_UNIX
-    SoniqueModule module = (SoniqueModule)dlsym(m_instance, "QueryModule");
-#else
-    SoniqueModule module = (SoniqueModule)GetProcAddress(m_instance, "QueryModule");
-#endif
+    SoniqueModule module = (SoniqueModule)m_instance->resolve("QueryModule");
     if(!module)
     {
         qDebug("Wrong svp file loaded");
