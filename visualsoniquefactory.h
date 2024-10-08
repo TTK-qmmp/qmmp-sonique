@@ -20,6 +20,7 @@
 #define VISUALSONIQUEFACTORY_H
 
 #include <QObject>
+#include <qmmp/qmmp.h>
 #include <qmmp/visualfactory.h>
 
 /*!
@@ -33,7 +34,11 @@ class VisualSoniqueFactory : public QObject, public VisualFactory
 public:
     virtual VisualProperties properties() const override final;
     virtual Visual *create(QWidget *parent) override final;
+#if (QMMP_VERSION_INT < 0x10700) || (0x20000 <= QMMP_VERSION_INT && QMMP_VERSION_INT < 0x20200)
     virtual QDialog *createConfigDialog(QWidget *parent) override final;
+#else
+    virtual QDialog *createSettings(QWidget *parent) override final;
+#endif
     virtual void showAbout(QWidget *parent) override final;
     virtual QString translation() const override final;
 
