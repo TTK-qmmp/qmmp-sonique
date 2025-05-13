@@ -102,6 +102,10 @@ SoniqueWidget::SoniqueWidget(QWidget *parent)
     m_timer->setInterval(40);
     connect(m_timer, SIGNAL(timeout()), SLOT(updateVisual()));
 
+    m_screenAction = new QAction(tr("Fullscreen"), this);
+    m_screenAction->setCheckable(true);
+    connect(m_screenAction, SIGNAL(triggered(bool)), this, SLOT(setFullScreen(bool)));
+
     initialize();
 }
 
@@ -173,6 +177,18 @@ void SoniqueWidget::updateVisual()
     }
 }
 
+void SoniqueWidget::setFullScreen(bool yes)
+{
+    if(yes)
+    {
+        setWindowState(windowState() | Qt::WindowFullScreen);
+    }
+    else
+    {
+        setWindowState(windowState() & ~Qt::WindowFullScreen);
+    }
+}
+
 void SoniqueWidget::hideEvent(QHideEvent *)
 {
     m_timer->stop();
@@ -207,6 +223,8 @@ void SoniqueWidget::paintEvent(QPaintEvent *)
 void SoniqueWidget::contextMenuEvent(QContextMenuEvent *)
 {
     QMenu menu(this);
+    menu.addAction(m_screenAction);
+    menu.addSeparator();
     menu.addAction(tr("&Next Preset"), this, SLOT(nextPreset()), tr("N"));
     menu.addAction(tr("&Previous Preset"), this, SLOT(previousPreset()), tr("P"));
     menu.addAction(tr("&Random Preset"), this, SLOT(randomPreset()), tr("R"));

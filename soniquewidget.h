@@ -38,11 +38,12 @@ public slots:
     virtual void start() override final;
     virtual void stop() override final;
 
-public slots:
+private slots:
     void nextPreset();
     void previousPreset();
     void randomPreset();
     void updateVisual();
+    void setFullScreen(bool yes);
 
 protected:
     virtual void hideEvent(QHideEvent *e) override final;
@@ -71,6 +72,7 @@ protected:
     QTimer *m_timer = nullptr;
     float m_left[QMMP_VISUAL_NODE_SIZE];
     float m_right[QMMP_VISUAL_NODE_SIZE];
+    QAction *m_screenAction = nullptr;
 
 };
 
