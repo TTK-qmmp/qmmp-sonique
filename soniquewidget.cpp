@@ -94,9 +94,9 @@ SoniqueWidget::SoniqueWidget(QWidget *parent)
 
     m_visData = new VisData;
     m_instance = new QLibrary;
-    m_kiss_cfg = kiss_fft_alloc(FFT_SIZE, 0, nullptr, nullptr);
-    m_in_freq_data = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
-    m_out_freq_data = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
+    m_kissCfg = kiss_fft_alloc(FFT_SIZE, 0, nullptr, nullptr);
+    m_inputFreqData = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
+    m_outFreqData = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
 
     m_timer = new QTimer(this);
     m_timer->setInterval(40);
@@ -114,13 +114,13 @@ SoniqueWidget::~SoniqueWidget()
     closePreset();
 
     delete m_visData;
-    delete m_texture;
-    delete m_visProc;
+    delete[] m_texture;
+    delete[] m_visProc;
     delete m_instance;
 
-    kiss_fft_free(m_kiss_cfg);
-    free(m_in_freq_data);
-    free(m_out_freq_data);
+    kiss_fft_free(m_kissCfg);
+    free(m_inputFreqData);
+    free(m_outFreqData);
 }
 
 void SoniqueWidget::start()
@@ -206,10 +206,10 @@ void SoniqueWidget::resizeEvent(QResizeEvent *)
         return;
     }
 
-    delete m_visProc;
+    delete[] m_visProc;
     m_visProc = nullptr;
 
-    delete m_texture;
+    delete[] m_texture;
     m_texture = new unsigned int[width() * height()]{0};
 }
 
@@ -251,31 +251,31 @@ void SoniqueWidget::process(float *left, float *right)
     {
         for(int i = 0; i < FFT_SIZE; ++i)
         {
-            m_in_freq_data[i].r = left[i];
-            m_in_freq_data[i].i = 0;
+            m_inputFreqData[i].r = left[i];
+            m_inputFreqData[i].i = 0;
         }
 
-        kiss_fft(m_kiss_cfg, m_in_freq_data, m_out_freq_data);
-        m_visData->Spectrum[0][0] = std::min(255, int(m_out_freq_data[0].r * 512));
+        kiss_fft(m_kissCfg, m_inputFreqData, m_outFreqData);
+        m_visData->Spectrum[0][0] = std::min(255, int(m_outFreqData[0].r * 512));
 
         for(int i = 0; i < SPECTRUM_SIZE; ++i)
         {
-            const int value = sqrt(pow((((m_out_freq_data[i].r) / 512) * 2), 2) + pow((((m_out_freq_data[i].i) / 512) * 2), 2)) * 512;
+            const int value = sqrt(pow((((m_outFreqData[i].r) / 512) * 2), 2) + pow((((m_outFreqData[i].i) / 512) * 2), 2)) * 512;
             m_visData->Spectrum[0][i] = std::min(255, value);
         }
 
         for(int i = 0; i < FFT_SIZE; ++i)
         {
-            m_in_freq_data[i].r = right[i];
-            m_in_freq_data[i].i = 0;
+            m_inputFreqData[i].r = right[i];
+            m_inputFreqData[i].i = 0;
         }
 
-        kiss_fft(m_kiss_cfg, m_in_freq_data, m_out_freq_data);
-        m_visData->Spectrum[1][0] = std::min(255, int(m_out_freq_data[0].r * 512));
+        kiss_fft(m_kissCfg, m_inputFreqData, m_outFreqData);
+        m_visData->Spectrum[1][0] = std::min(255, int(m_outFreqData[0].r * 512));
 
         for(int i = 0; i < SPECTRUM_SIZE; ++i)
         {
-            const int value = sqrt(pow((((m_out_freq_data[i].r) / 512) * 2), 2) + pow((((m_out_freq_data[i].i) / 512) * 2), 2)) * 512;
+            const int value = sqrt(pow((((m_outFreqData[i].r) / 512) * 2), 2) + pow((((m_outFreqData[i].i) / 512) * 2), 2)) * 512;
             m_visData->Spectrum[1][i] = std::min(255, value);
         }
     }
