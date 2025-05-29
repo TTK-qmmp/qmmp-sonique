@@ -294,8 +294,6 @@ void SoniqueWidget::process(float *left, float *right)
 
     m_visData->MillSec = QDateTime::currentMSecsSinceEpoch();
     m_sonique->Render(m_texture, w, h, w, m_visData);
-
-    update();
 }
 
 void SoniqueWidget::randomPreset()
