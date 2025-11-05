@@ -66,7 +66,7 @@ static void customZoomAndBlur(unsigned int *v, unsigned int *vt, int xs, int ys)
 
 static QFileInfoList fileListByPath(const QString &dpath, const QStringList &filter)
 {
-    QDir dir(dpath);
+    const QDir dir(dpath);
     if(!dir.exists())
     {
         return QFileInfoList();
@@ -260,7 +260,7 @@ void SoniqueWidget::process(float *left, float *right)
 
         for(int i = 0; i < SPECTRUM_SIZE; ++i)
         {
-            const int value = sqrt(pow((((m_outFreqData[i].r) / 512) * 2), 2) + pow((((m_outFreqData[i].i) / 512) * 2), 2)) * 512;
+            const int value = std::sqrt(std::pow((((m_outFreqData[i].r) / 512) * 2), 2) + std::pow((((m_outFreqData[i].i) / 512) * 2), 2)) * 512;
             m_visData->Spectrum[0][i] = std::min(255, value);
         }
 
@@ -275,7 +275,7 @@ void SoniqueWidget::process(float *left, float *right)
 
         for(int i = 0; i < SPECTRUM_SIZE; ++i)
         {
-            const int value = sqrt(pow((((m_outFreqData[i].r) / 512) * 2), 2) + pow((((m_outFreqData[i].i) / 512) * 2), 2)) * 512;
+            const int value = std::sqrt(std::pow((((m_outFreqData[i].r) / 512) * 2), 2) + std::pow((((m_outFreqData[i].i) / 512) * 2), 2)) * 512;
             m_visData->Spectrum[1][i] = std::min(255, value);
         }
     }
@@ -289,6 +289,7 @@ void SoniqueWidget::process(float *left, float *right)
         {
             m_visProc = new unsigned int[w * h];
         }
+
         customZoomAndBlur(m_texture, m_visProc, w, h);
     }
 
@@ -310,7 +311,7 @@ void SoniqueWidget::randomPreset()
 void SoniqueWidget::initialize()
 {
     const QString &dir = Qmmp::configDir() + "/sonique";
-    const QFileInfoList folderList(fileListByPath(dir, QStringList() << "*.svp"));
+    const QFileInfoList folderList(fileListByPath(dir, {"*.svp"}));
     for(const QFileInfo &fin : folderList)
     {
         m_presetList << fin.absoluteFilePath();
@@ -357,7 +358,7 @@ void SoniqueWidget::generatePreset()
     m_sonique = module();
 
     const QString &dir = QFileInfo(m_presetList[m_currentIndex]).absolutePath();
-    const QFileInfoList iniList(fileListByPath(dir, QStringList() << "*.ini"));
+    const QFileInfoList iniList(fileListByPath(dir, {"*.ini"}));
     if(!iniList.isEmpty())
     {
         char *init_path = iniList.front().absoluteFilePath().toLocal8Bit().data();
