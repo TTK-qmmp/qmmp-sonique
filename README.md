@@ -5,11 +5,14 @@ This is a plugin for Qmmp (1.6.0 or greater) visual.
 The following packages are required, including development headers,
 which some vendors split into separate packages:
 
-- qmmp (1.x or 2.x)
-- qt (5 for qmmp 1.x and 6 for qmmp 2.x)
+- qt4 for qmmp 0.x
+- qt5 for qmmp 1.x
+- qt6 for qmmp 2.x
 
 To build, run Qt's qmake:
 
+If you are building for qmmp 0.x, run: <br/>
+`$ qmake-qt4` <br/>
 If you are building for qmmp 1.x, run: <br/>
 `$ qmake-qt5` <br/>
 And if you are building for qmmp 2.x, run: <br/>
