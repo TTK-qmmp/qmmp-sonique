@@ -1,3 +1,11 @@
+
+QMAKE_CFLAGS += -std=gnu11
+greaterThan(QT_MAJOR_VERSION, 5){
+    QMAKE_CXXFLAGS += -std=c++17
+}else{
+    QMAKE_CXXFLAGS += -std=c++11
+}
+
 HEADERS += soniquewidget.h \
            visual.h \
            kiss_fft.h \
@@ -20,11 +28,6 @@ contains(CONFIG, BUILD_PLUGIN_INSIDE){
     QT += widgets
     CONFIG += warn_off plugin lib thread link_pkgconfig c++11
     TEMPLATE = lib
-
-    lessThan(QT_MAJOR_VERSION, 5){
-        QMAKE_CFLAGS += -std=gnu11
-        QMAKE_CXXFLAGS += -std=c++11
-    }
 
     unix{
         equals(QT_MAJOR_VERSION, 4){
