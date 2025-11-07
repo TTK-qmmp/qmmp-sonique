@@ -21,6 +21,11 @@ contains(CONFIG, BUILD_PLUGIN_INSIDE){
     CONFIG += warn_off plugin lib thread link_pkgconfig c++11
     TEMPLATE = lib
 
+    lessThan(QT_MAJOR_VERSION, 5){
+        QMAKE_CFLAGS += -std=gnu11
+        QMAKE_CXXFLAGS += -std=c++11
+    }
+
     unix{
         equals(QT_MAJOR_VERSION, 4){
             QMMP_PKG = qmmp-0
