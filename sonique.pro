@@ -22,12 +22,14 @@ contains(CONFIG, BUILD_PLUGIN_INSIDE){
     TEMPLATE = lib
 
     unix{
-        equals(QT_MAJOR_VERSION, 5){
+        equals(QT_MAJOR_VERSION, 4){
+            QMMP_PKG = qmmp-0
+        }else:equals(QT_MAJOR_VERSION, 5){
             QMMP_PKG = qmmp-1
         }else:equals(QT_MAJOR_VERSION, 6){
             QMMP_PKG = qmmp
         }else{
-            error("Unsupported Qt version: 5 or 6 is required")
+            error("No Qt version found")
         }
         
         PKGCONFIG += $${QMMP_PKG}
