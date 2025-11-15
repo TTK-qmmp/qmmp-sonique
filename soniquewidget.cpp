@@ -6,6 +6,9 @@
 #include <QTimer>
 #include <QPainter>
 #include <QDateTime>
+#ifdef Q_OS_WIN
+#include <QCoreApplication>
+#endif
 
 typedef VisInfo* (*SoniqueModule)();
 
@@ -310,7 +313,11 @@ void SoniqueWidget::randomPreset()
 
 void SoniqueWidget::initialize()
 {
+#ifndef Q_OS_WIN
     const QString &dir = Qmmp::configDir() + "/sonique";
+#else
+    const QString &dir = QCoreApplication::applicationDirPath() + "/sonique";
+#endif
     const QFileInfoList folderList(fileListByPath(dir, {"*.svp"}));
     for(const QFileInfo &fin : folderList)
     {
