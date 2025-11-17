@@ -7,7 +7,7 @@
 #include <QPainter>
 #include <QDateTime>
 #ifdef Q_OS_WIN
-#include <QCoreApplication>
+#  include <QCoreApplication>
 #endif
 
 typedef VisInfo* (*SoniqueModule)();
@@ -313,10 +313,14 @@ void SoniqueWidget::randomPreset()
 
 void SoniqueWidget::initialize()
 {
-#ifndef Q_OS_WIN
-    const QString &dir = Qmmp::configDir() + "/sonique";
-#else
+#ifdef Q_OS_WIN
+# if QMMP_VERSION_INT < 0x20300
     const QString &dir = QCoreApplication::applicationDirPath() + "/sonique";
+# else
+    const QString &dir = QCoreApplication::applicationDirPath() + "/../share/sonique";
+# endif
+#else
+    const QString &dir = Qmmp::configDir() + "/sonique";
 #endif
     const QFileInfoList folderList(fileListByPath(dir, {"*.svp"}));
     for(const QFileInfo &fin : folderList)
