@@ -1,5 +1,5 @@
 #include "visualsoniquefactory.h"
-#include "soniquewidget.h"
+#include "soniqueplugin.h"
 
 #include <QMessageBox>
 
@@ -14,7 +14,7 @@ VisualProperties VisualSoniqueFactory::properties() const
 
 Visual *VisualSoniqueFactory::create(QWidget *parent)
 {
-    return new SoniqueWidget(parent);
+    return new SoniquePlugin(parent);
 }
 
 #if (QMMP_VERSION_INT < 0x10700) || (0x20000 <= QMMP_VERSION_INT && QMMP_VERSION_INT < 0x20200)

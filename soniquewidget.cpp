@@ -2,8 +2,7 @@
 #include <qmmp/qmmp.h>
 
 #include <QDir>
-#include <QMenu>
-#include <QTimer>
+#include <QLibrary>
 #include <QPainter>
 #include <QDateTime>
 #ifdef Q_OS_WIN
@@ -86,28 +85,21 @@ static QFileInfoList fileListByPath(const QString &dpath, const QStringList &fil
 }
 
 
-SoniqueWidget::SoniqueWidget(QWidget *parent)
-    : Visual(parent)
+SoniqueWidget::SoniqueWidget(QListWidget *widget, QWidget *parent)
+    : QWidget(parent)
 {
-    setlocale(LC_NUMERIC, "C"); //fixes problem with non-english locales
-    setWindowTitle(tr("Sonique Widget"));
-
     setMinimumSize(580, 320);
     srand(QDateTime::currentMSecsSinceEpoch());
 
     m_visData = new VisData;
     m_instance = new QLibrary;
+
+    m_itemWidget = widget;
+    connect(widget, SIGNAL(currentRowChanged(int)), this, SLOT(selectPreset(int)));
+
     m_kissCfg = kiss_fft_alloc(FFT_SIZE, 0, nullptr, nullptr);
     m_inputFreqData = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
     m_outFreqData = (kiss_fft_cpx*)malloc(sizeof(kiss_fft_cpx) * FFT_SIZE);
-
-    m_timer = new QTimer(this);
-    m_timer->setInterval(40);
-    connect(m_timer, SIGNAL(timeout()), SLOT(updateVisual()));
-
-    m_screenAction = new QAction(tr("Fullscreen"), this);
-    m_screenAction->setCheckable(true);
-    connect(m_screenAction, SIGNAL(triggered(bool)), this, SLOT(setFullScreen(bool)));
 
     initialize();
 }
@@ -126,115 +118,7 @@ SoniqueWidget::~SoniqueWidget()
     free(m_outFreqData);
 }
 
-void SoniqueWidget::start()
-{
-    if(isVisible())
-    {
-        m_timer->start();
-    }
-}
-
-void SoniqueWidget::stop()
-{
-    m_timer->stop();
-}
-
-void SoniqueWidget::nextPreset()
-{
-    if(m_presetList.isEmpty())
-    {
-        return;
-    }
-
-    m_currentIndex++;
-    if(m_currentIndex >= m_presetList.count())
-    {
-        m_currentIndex = 0;
-    }
-
-    generatePreset();
-}
-
-void SoniqueWidget::previousPreset()
-{
-    if(m_presetList.isEmpty())
-    {
-        return;
-    }
-
-    m_currentIndex--;
-    if(m_currentIndex < 0)
-    {
-        m_currentIndex = m_presetList.count() - 1;
-    }
-
-    generatePreset();
-}
-
-void SoniqueWidget::updateVisual()
-{
-    if(takeData(m_left, m_right))
-    {
-        process(m_left, m_right);
-        update();
-    }
-}
-
-void SoniqueWidget::setFullScreen(bool yes)
-{
-    if(yes)
-    {
-        setWindowState(windowState() | Qt::WindowFullScreen);
-    }
-    else
-    {
-        setWindowState(windowState() & ~Qt::WindowFullScreen);
-    }
-}
-
-void SoniqueWidget::hideEvent(QHideEvent *)
-{
-    m_timer->stop();
-}
-
-void SoniqueWidget::showEvent(QShowEvent *)
-{
-    m_timer->start();
-}
-
-void SoniqueWidget::resizeEvent(QResizeEvent *)
-{
-    if(!m_sonique)
-    {
-        return;
-    }
-
-    delete[] m_visProc;
-    m_visProc = nullptr;
-
-    delete[] m_texture;
-    m_texture = new unsigned int[width() * height()]{0};
-}
-
-void SoniqueWidget::paintEvent(QPaintEvent *)
-{
-    QPainter painter(this);
-    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-    painter.drawImage(rect(), QImage((uchar*)m_texture, width(), height(), QImage::Format_RGB32));
-}
-
-void SoniqueWidget::contextMenuEvent(QContextMenuEvent *)
-{
-    QMenu menu(this);
-    menu.addAction(m_screenAction);
-    menu.addSeparator();
-    menu.addAction(tr("&Next Preset"), this, SLOT(nextPreset()), tr("N"));
-    menu.addAction(tr("&Previous Preset"), this, SLOT(previousPreset()), tr("P"));
-    menu.addAction(tr("&Random Preset"), this, SLOT(randomPreset()), tr("R"));
-    menu.exec(QCursor::pos());
-}
-
-void SoniqueWidget::process(float *left, float *right)
+void SoniqueWidget::addBuffer(float *left, float *right)
 {
     if(!m_sonique)
     {
@@ -300,6 +184,38 @@ void SoniqueWidget::process(float *left, float *right)
     m_sonique->Render(m_texture, w, h, w, m_visData);
 }
 
+void SoniqueWidget::nextPreset()
+{
+    if(m_presetList.isEmpty())
+    {
+        return;
+    }
+
+    m_currentIndex++;
+    if(m_currentIndex >= m_presetList.count())
+    {
+        m_currentIndex = 0;
+    }
+
+    m_itemWidget->setCurrentRow(m_currentIndex);
+}
+
+void SoniqueWidget::previousPreset()
+{
+    if(m_presetList.isEmpty())
+    {
+        return;
+    }
+
+    m_currentIndex--;
+    if(m_currentIndex < 0)
+    {
+        m_currentIndex = m_presetList.count() - 1;
+    }
+
+    m_itemWidget->setCurrentRow(m_currentIndex);
+}
+
 void SoniqueWidget::randomPreset()
 {
     if(m_presetList.isEmpty())
@@ -308,7 +224,39 @@ void SoniqueWidget::randomPreset()
     }
 
     m_currentIndex = rand() % m_presetList.count();
+    m_itemWidget->setCurrentRow(m_currentIndex);
+}
+
+void SoniqueWidget::selectPreset(int index)
+{
+    if(m_presetList.isEmpty())
+    {
+        return;
+    }
+
+    m_currentIndex = index;
     generatePreset();
+}
+
+void SoniqueWidget::resizeEvent(QResizeEvent *)
+{
+    if(!m_sonique)
+    {
+        return;
+    }
+
+    delete[] m_visProc;
+    m_visProc = nullptr;
+
+    delete[] m_texture;
+    m_texture = new unsigned int[width() * height()]{0};
+}
+
+void SoniqueWidget::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    painter.drawImage(rect(), QImage((uchar*)m_texture, width(), height(), QImage::Format_RGB32));
 }
 
 void SoniqueWidget::initialize()
@@ -326,6 +274,7 @@ void SoniqueWidget::initialize()
     for(const QFileInfo &fin : folderList)
     {
         m_presetList << fin.absoluteFilePath();
+        m_itemWidget->addItem(fin.fileName());
     }
 
     randomPreset();

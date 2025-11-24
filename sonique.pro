@@ -6,12 +6,14 @@ greaterThan(QT_MAJOR_VERSION, 5){
     QMAKE_CXXFLAGS += -std=c++11
 }
 
-HEADERS += soniquewidget.h \
+HEADERS += soniqueplugin.h \
+           soniquewidget.h \
            visual.h \
            kiss_fft.h \
            visualsoniquefactory.h
 
-SOURCES += soniquewidget.cpp \
+SOURCES += soniqueplugin.cpp \
+           soniquewidget.cpp \
            kiss_fft.c \
            visualsoniquefactory.cpp
 
