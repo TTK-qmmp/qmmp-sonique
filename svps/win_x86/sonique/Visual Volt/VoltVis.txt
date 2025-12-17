@@ -1,0 +1,29 @@
+Visual Volt Ver1.0 for Sonique1.2 or later (Internal Ver. NO. 1,0,0,1)
+	A Soniuqe visual plugin
+	by Ranran
+==================================================================
+Brief Description:
+	Lights and orbs with music.
+	This version was optimize for Sonique1.2.
+
+Changes:
+1. Optimeze for Sonique 1.2.
+	If you use Sonique 1.2, VoltVis doesn't work well.
+	Lights are not drawed oftenly.
+	I changed it to work well on Sonique 1.2.
+2. Change how many number of lights.
+	In Vis.INI file, you can find following setting.
+
+	[Visual Volt]
+	:
+	NUMBER=15
+
+	If you want to see many lights, set NUMBER=20 or more.
+
+Contact:
+	YRL04701@nifty.ne.jp
+	(I apologize about I entered incorrect e-mail when I submitted StarVis.)
+	You can get source code from here.
+	http://members.xoom.com/lran/Dev/
+
+	Enjoy!!

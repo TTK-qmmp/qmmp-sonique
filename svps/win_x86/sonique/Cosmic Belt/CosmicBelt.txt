@@ -1,0 +1,46 @@
+------------------------------
+|    - Cornic Belt 1.2 -     |
+|                            |
+| a Sonique visual plugin by |
+|                            |
+|    Robert Wenzel (CoR)     |
+|                            |
+------------------------------
+
+Hello sonique fans !!!
+
+a new Visual flying out to you !!!
+It performs some kind of a cosmic "belt" made out of
+anti aliased and coloured lines being stretched and
+moved by the music. There are also some light particles
+inside the tunnel and a rotated starfield in the background.
+
+Several values can be changed in the vis.ini file !!!
+
+watch out for these lines in the vis.ini located in
+your sonique\ directory
+
+these setting appear after you started the visual the first time in your Sonique player
+
+[CoR's Cosmic Belt 1.2]
+Star_Speed=3.0					-> negative values allowed
+Number_of_Stars(max_1000)=400			-> integer value, 0 = no stars
+Particle_Speed=-2.0				-> also positive values allowed
+Particle_Size=15.0				-> for slow PC I recommed to use small values
+Number_of_Particles(max_100)=20			-> to turn them of setit to 0
+Camera_Rotation_Speed=0.3			-> speed of the camera moving around the belt
+
+try Star_Speed 10.0 for a lightning fast ride through the universe !!!
+
+when changed some of the settings save the vis.ini and restart Sonique !
+
+to reset to default values delete then restart Sonique.
+
+
+
+
+have fun...
+
+CoR
+
+contact me at:   wenzel.robert@gmx.de

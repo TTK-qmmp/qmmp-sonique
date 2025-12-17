@@ -1,0 +1,20 @@
+----------------------------------
+Acidspunk for Sonique
+
+by S°ren Holstebroe - soren@rhk.dk
+
+Acidspunk homepage  : http://acidspunk.rhk.dk/
+----------------------------------
+
+Acidspunk requires an MMX processor and DirectX
+
+Acidspunk stores its configuration parameter in the registry database.
+To change the default settings for acidspunk do this:
+click: 
+start then run
+type 
+regedit (enter)
+Open the key HKEY_LOCAL_MACHINE/Software/Acidspunk
+Change whatever you want to and save the changes.
+
+Note that these settings are shared with the winamp version, so as an alternative you can use the configuration  dialog in the winamp version to change the default settings.

@@ -1,0 +1,70 @@
+Corona by Phthalo (22 Sep 02)
+
+
+
+Introduction...
+
+A blurry swirly particle effect thingy. With reflection.
+
+You should run this at a fairly low resolution - make sure you're getting 30 
+frames per second at an *absolute minimum* (the smoothness makes a huge
+difference). 
+
+Don't watch it for too long (this isn't a big danger - it's not that
+interesting) or you'll end up seeing weird swirls behind you're eyelids before
+you go to sleep.
+
+
+
+Installation...
+
+If the download didn't come with a proper installer, just copy the corona.svp
+file to your Sonique "vis" directory, and restart Sonique (if you're using 
+Synesthesia, move the corona.svp to the vis directory in the Winamp directory).
+
+
+
+A Bit of History...
+
+I've always felt that particle systems have been neglected in vises. Ever since
+Ryan Geiss released his Winamp vis (called Geiss), blur effects have been the
+de facto standard, and while they've been brilliantly reproduced and applied in
+countless plugins, the original idea hasn't changed. Such was my thinking around
+March this year, when I started writing a little Sonique plugin to package with
+Synesthesia (my Winamp-Sonique port plugin). After a couple of days, though, it
+didn't seem like it was going anywhere, and I was too busy to care at the time,
+so the fledgling plugin was put to bed.
+
+Half a year later, I was looking back nostalgically at the Synesthesia code,
+trying to make a few changes for a final release, when I saw my little 
+half-complete Sonique plugin. After a bit of playing with it, I decided to
+rewrite it and finish the job. Corona is the result :O)
+
+I'm reasonably pleased with it... I didn't intend to take more than a few days
+working on it, but only now am I beginning to really believe in the 2.5 rule:
+The time you expect a project to take will be enough to *just* get it working.
+You'll need that amount of time again to make it good (satisfy other people's
+requests), and another half to put a few finishing touches on it :O) I've
+basically missed out the last .5 - I think it could be better but I just don't
+have the time to do it. I might release the source code sometime for other
+people to tinker with, but there's nothing very clever in it - I expect most
+people would be able to replicate what I've done in less time than it'd take 
+them to comprehend my C++!
+
+
+
+Thanks...
+
+to the many people that helped test Corona and had the patience to encourage me
+even when it wasn't worth the 17kb download :O)
+
+
+
+Contact...
+
+E-mail me if you have anything to say (really, anything - I love some feedback
+even if it's completely useless!) at richard.asbury@btinternet.com
+
+My main webpage is at http://users.ox.ac.uk/~linc1040/
+
+		Richard Asbury

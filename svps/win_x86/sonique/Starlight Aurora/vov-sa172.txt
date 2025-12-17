@@ -1,0 +1,238 @@
+Welcome to Vovoid Starlight Aurora version 1.72!
+
+Starlight Aurora / VX 3D Lite (C) 2000,2001 Vovoid Software & Multimedia 
+All rights reserved.
+
+********************************************************************************
+Note! License agreement below. Read it carefully.
+********************************************************************************
+
+--------------------------------------------------------------------------------
+
+About:
+  This is the latest version of Starlight Aurora for Sonique 1.x.
+  (As of November 2001)
+  
+  With updated routines & tweaks from our VX 3DL Visuals Engine this now runs
+  smoother than ever.
+  
+  Get more sweetness: http://visuals.vovoid.com
+
+  Enjoy!
+
+
+--------------------------------------------------------------------------------
+
+Credits:
+    Code, Design & Graphics:
+      Jonatan Wallmander
+
+VX Engine Credits:
+    VX Project Management and design:
+      Jonatan Wallmander
+    VX engine support code & software renderer code:
+      Robert Wenzel
+
+--------------------------------------------------------------------------------
+
+Version history:
+- 0.11 (Released on the twenty-first of November, 2000)
+- 0.1 (Released on the first of November, 2000)
+  First released version
+
+--------------------------------------------------------------------------------
+
+License agreement:
+
+STARLIGHT AURORA/VX 3D LITE FREEWARE LICENSE AGREEMENT
+
+This software is offered to you by  Vovoid Software & Multimedia, based in
+Gothenburg, Sweden, (For extended information about Vovoid Software &
+Multimedia, see www.vovoid.com) subject to the terms and conditions of
+this Freeware License Agreement.
+
+The license rules for Starlight Aurora also apply to the technology it's based on -
+in this case the VX 3d Lite Engine.
+
+Note:
+  You as a user are hereinafter referred to as "you" or "the user".
+  Vovoid Software & Multimedia is hereinafter referred to as "Vovoid".
+  Starlight Aurora / VX 3d Lite is hereinafter referred to as "Starlight Aurora".
+
+Please read the Agreement carefully, because it is a legal contract and imposes
+obligations on you as a Starlight Aurora user.  By loading this product into the RAM
+of your computer (upon execution as a Sonique plugin) you will be bound by this
+Agreement.
+
+SOFTWARE DESCRIPTION.
+
+Starlight Aurora is a cutting-edge Sonique 1.x visual effects plugin.
+
+THE LICENSE.
+
+Vovoid is distributing this software plugin from three eventual sites - 
+1. http://plugins.sonique.com
+2. http://www.vovoid.com
+3. Through book/magazine/newsletter etc.
+The distribution of this software is 100% free at the sites listed above.
+Vovoid license's Starlight Aurora only during the time that this Agreement is
+in effect and subject to your compliance of the agreement. You may load
+Starlight Aurora into the temporary/permanent storage of your computer and you
+may do this each time you wish to use it under the terms and conditions 
+defined in this agreement. Also that is only for personal use. All rights 
+to Starlight Aurora not listed in this document (regardless if existing or not) 
+is reserved for Vovoid Software & Multimedia. If you violate this agreement 
+the license shall terminate immediately.
+
+
+PROHIBITED USE.
+
+You warrant and represent that you will not violate the requirements or
+obligations of this agreement and you represent and warrant that:
+
+ - You will not, and will not permit others to,
+  (I)  reverse engineer, decompile, disassemble, derive the source code of,
+       modify, or create derivative works from Starlight Aurora, or
+  (II) copy, distribute, publicly display, or publicly perform Starlight Aurora
+       other than as expressly authorized by this Agreement.
+
+ - You will not use Starlight Aurora to engage in or allow others to engage in 
+   any illegal activity.
+ - You will not export Starlight Aurora or use Starlight Aurora outside the 
+   territories of Sweden except as authorized by Swedish law and the law 
+   of the jurisdiction in which you obtained Starlight Aurora. 
+ - You will not use Starlight Aurora to engage in any activity that will 
+   violate the rights of third parties, including, without limitation, through
+   the use, public display, public performance, reproduction, distribution, or
+   modification of communications or materials that infringe copyrights,
+   trademarks, publicity rights, privacy rights, other proprietary rights, or
+   rights against defamation of third parties.
+ - You may not claim any sponsorship by, endorsement by, or affiliation with
+   Vovoid.
+ - You will not display Starlight Aurora at Night Clubs/Concerts and or in equivalent
+   situations.
+ - You will not use Starlight Aurora in other Programs than Sonique thus
+   excluding 3rd-party visual viewers and video post production software that
+   might support Sonique Visuals.
+ -  You will not use Starlight Aurora to gain public revenue of any kind.
+If wish to be granted an exemption from the last 3 clauses, please contact
+Vovoid at the adress info@vovoid.com. The
+
+RELEASE AND INDEMNITY.
+
+You agree to release, defend, indemnify and hold harmless Vovoid, their
+officers, directors, employees, agents, independent contractors, attorneys,
+accounts, parent corporations, subsidiary corporations, affiliates, successors,
+and assigns, from and against any and all liability, claims, actions or demands
+by yourself or any other party resulting from or relating to your use or misuse
+of Starlight Aurora. You waive all laws that may limit the efficacy of such a release
+or indemnity.
+
+DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY.
+
+COSMIC WAVE IS SUPPLIED "AS IS." VOVOID DISCLAIMS ALL WARRANTIES OF 
+ANY KIND, EITHER EXPRESS OR IMPLIED, AS TO COSMIC WAVE, INCLUDING, 
+BUT NOT LIMITED TO, IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, 
+MERCHANTABILITY OR NON-INFRINGEMENT OF PROPRIETARY RIGHTS.  NEITHER THIS 
+AGREEMENT NOR ANY DOCUMENTATION FURNISHED UNDER IT IS INTENDED TO EXPRESS OR 
+IMPLY ANY WARRANTY THAT THE OPERATION OF COSMIC WAVE WILL BE 
+UNINTERRUPTED, TIMELY, OR ERROR-FREE. 
+
+Some jurisdictions do not permit disclaimers of implied warranties.  
+In such jurisdictions, the foregoing disclaimers may not apply to you 
+insofar as they relate to implied warranties.
+
+UNDER NO CIRCUMSTANCES SHALL VOVOID BE LIABLE TO ANY USER FOR DIRECT, INDIRECT, 
+INCIDENTAL, CONSEQUENTIAL, SPECIAL, OR EXEMPLARY DAMAGES (EVEN IF VOVOID HAS
+BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES), ARISING FROM OR RELATING TO
+THIS AGREEMENT, COSMIC WAVE, OR USER'S USE OR MISUSE OF COSMIC WAVE
+OR ANY OTHER SERVICES PROVIDED BY VOVOID.  SUCH LIMITATION OF LIABILITY SHALL
+APPLY WHETHER THE DAMAGES ARISE FROM THE USE OR MISUSE OF COSMIC WAVE OR ANY
+OTHER SERVICES SUPPLIED BY VOVOID (INCLUDING SUCH DAMAGES INCURRED BY THIRD
+PARTIES), OR ERRORS OF COSMIC WAVE.
+
+Some jurisdictions do not permit limitations of liability.  In such
+jurisdictions, the foregoing limitations may not apply to you.
+
+FORCE MAJEURE.
+
+Under no circumstances shall Vovoid be liable for any delay or failure in
+performance under this Agreement resulting directly or indirectly from acts of
+nature, forces, or causes beyond its reasonable control, including without
+limitation, Internet failures, computer equipment failures, telecommunication
+equipment failures, other equipment failures, electrical power failures,
+strikes, labor disputes, riots, insurrections, civil disturbances, shortages of
+labor or materials, fires, flood, storms, explosions, acts of God, war,
+governmental actions, orders of domestic or foreign courts or tribunals,
+non-performance of third parties, or loss of or fluctuations in heat, light, or
+air conditioning.
+
+CHOICE OF LAW, JURISDICTION, AND VENUE.
+
+This Agreement shall be governed by and construed in accordance with the laws of
+Sweden and in the United States which is the place where most of the
+distribution takes place.
+
+ENTIRE AGREEMENT.
+
+This Agreement constitutes the entire agreement between the parties with respect
+to the subject matter hereof and supersedes all previous proposals, both oral
+and written, negotiations, representations, writings and all other
+communications between the parties.
+
+MODIFICATION
+
+Vovoid reserves the right to modify or amend this Agreement at any time and for
+any reason or for no reason at all, in their sole discretion, without notice.
+
+TERM AND TERMINATION.
+
+This Agreement is terminable at will by you or by Vovoid for any reason or for
+no reason at all, in either your, Vovoid's sole discretion.  This Agreement
+shall terminate immediately upon any breach by you.  Upon termination, you agree
+to discard all copies of Starlight Aurora.
+All provisions of this Agreement which by their nature extend beyond termination
+remain in effect until fulfilled and apply to respective successors and assigns.
+
+RELATIONSHIP OF PARTIES.
+
+You and Vovoid are independent contractors under this Agreement, and nothing
+herein shall be construed to create a partnership, joint venture, agency, or
+employment relationship.  Neither party pursuant to this Agreement has authority
+to enter into agreements of any kind on behalf of the other party and neither
+party shall be considered the agent of the other.
+
+PARENTAL SAFETY CONTROLS.
+
+Certain material available on the Internet is not appropriate for minors. To
+prevent or limit your children's access to such material, a number of parental
+control protections (such as computer hardware, software, and filtering
+services) are commercially available.
+
+NON-WAIVER AND SEPARABILITY.
+
+Vovoid's failure to exercise or enforce any right or provision of this Agreement
+shall not constitute a waiver of such right or provision. If a court of
+competent jurisdiction holds any provision of this Agreement to be invalid, the
+parties nevertheless agree that the court should endeavor to give effect to the
+parties intentions as reflected in the provision, and agree that the other
+provisions of this Agreement remain in full force and effect
+
+HEADINGS.
+
+The headings contained in this Agreement are for reference purposes only and
+shall not in any way affect the meaning or interpretations of this Agreement.
+
+REGISTRATION AND ACCEPTANCE.
+
+By loading Starlight Aurora, each user represents and warrants that he or she is 18
+years of age or older, is capable of entering into a binding legal agreement,
+and has read, understands, and agrees to be bound by all provisions of this
+Agreement.  Any parent or guardian of a person under the age of 18 may accept
+this Agreement on behalf of a user.  By doing so, any such parent or guardian
+represents and warrants that he or she is 18 years of age or older, is capable
+of entering into a binding legal agreement, agrees to accept full responsibility
+for the child's use of Starlight Aurora, and has read, understands, and agrees to be
+bound by the Agreement.
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,15 @@
+Surreal Potential Soniuqe Plugin v1.0
+Written by Brenden Tennant
+
+Each point that you see floating around is a gravitational field.
+The 12 fields are integrated for each pixel to determine the shape
+of the overall field.  Field strengths are determined by spectral
+segments of the signal.  Range of movement and speed is determined
+by signal VU levels.  I've optimized this in assembly and it runs
+smoothly in all screen modes on my PII 400 Celeron.
+
+Enjoy.
+
+
+Brenden Tennant
+bten@swbell.net

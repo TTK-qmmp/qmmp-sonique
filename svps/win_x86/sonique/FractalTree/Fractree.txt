@@ -1,0 +1,16 @@
+
+
+              Sonique FractalTree Visual Plugin v1.5
+
+     This is a simple Fractal tree, with parameters synchronized 
+  to the music. There are no parameters you can change, to customize 
+  the plugin. It was developed only in about four hours, so if there
+  are any bugs, please report them to karagian@aetos.it.teithe.gr
+
+  Changes from version 1:
+    - Added color changing
+    - Fractal is more sensitive to the music. More Psycho...
+
+  Hope you enjoy it.
+
+  Karagiannidis Sabbas

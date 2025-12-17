@@ -1,0 +1,42 @@
+Xoo - A Sonique Visual Plugin
+Version 1.0 (29th Nov 1999)
+Produced by MiNDCUBE ( grk@mindcube.net )
+
+
+Intro
+-----
+Not a lot to say about this really. Looks cool with some tracks, not so good
+with others, ho hum..
+
+To see the effect I had in mind, try the Tantrance album, second disc, track
+7, "Galaxian". :-)
+
+
+Configuration Options
+---------------------
+You can set the diversity of the palette used, look in the VIS.INI file
+for the [Xoo v1.0] section, notice the "palette=258"? 
+
+You can set the "palette" value to anything you like... although only values
+in the range 2-516 are used. Default is 258.
+
+
+Effect Settings
+---------------
+Sonique's internal effects are ignored.
+
+
+General
+-------
+Apologies if this is a bit of a CPU drain, it's not been optimised at all, I was
+just tweaking bits 'n bobs until I was happy with the look. If anyone wants a
+quicker version drop me an email, it works OK on a PIII-450. This was knocked
+up in MSVC++ 6.
+
+Hope someone likes it!
+
+Enjoy
+
+Graham King
+MiNDCUBE Software
+grk@mindcube.net

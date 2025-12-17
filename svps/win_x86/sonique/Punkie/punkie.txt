@@ -1,0 +1,59 @@
+Punkie v1.7 for Sonique
+Copyright (c) 2000 By Pascal Dallongeville
+
+Punkie is just a little 'blur-zoom', it was originally designed for winamp.
+It is less faster than winamp version (because it doesn't need 8 to 32 bpp conversion) and 
+the configuration can anly be changed by editing the vis.ini file in 'punkie' section.
+
+
+FEATURES in version 1.7 :
+-------------------------
+
+- 8 bpp and fullcolor mode support
+- 26 waveforms which 3 types each
+- 5 effects with 4 types of drawing
+- 4 styles for shape effects
+- 26 palettes (15 normals and 11 'stranges')
+- differents zooms that react to music.
+- Mirror effect (to improve speed on very slow computer)
+- A blur and fadeout rendering
+- A lot of presets ...
+- A Fast Render Mode option
+
+
+CONFIGURATION :
+---------------
+Edit the vis.ini file (in the Sonique subdirectory)
+
+* Hor_Mirror: Horizontal Mirror effect, it is faster (ideal for slow computer), set
+this value to 1 to enabled it (otherwise, let it to 0, the default value)
+
+* Coef_Pal_Coarse: Coeficient of 'stranges' palettes use. choose a value from 0 to 10 (3 by default).
+3 -> 30% to have a 'strange' palette, 0: never use 'stranges' palettes, 10: always use it.
+
+* Nb_Fps_Between_Pal: Number of fps betwwen a palette fade (palette change) -> from 0 to 1000 (default 200).
+0 means that actual palette color will always fade to another.
+
+* Delay_preset: Number of milliseconds betwwen two differents sets of effects: from 500 (0,5 sec)
+to 20000 (20 sec). the preset is changed each 'Delay_Preset' milliseconds. Default = 5000.
+
+* Dec_Fade: (for 8 bpp mdoe only) coeficient of fadeout. from 0 (no fadeout) to 10 (strong fadeout). A strong fadeout give more black color on the screen (this feature work better with MMX). Default value = 6.
+
+* Render_8_Bpp: 8 bits per pixel mode (faster but less colors) : 1 enabled it, 0 enabled 32 bpp
+
+* Inc_Color_32: (for 32 bpp mode only) incrementation of the cycling color waveform (8 by default, put a value between 1 and 20)
+
+* FastRender: Fast Render Mode: 1 = enabled, 0 = disabled (by default)
+I recommend use it with trance, techno musics since Punkie react a lot on bass...
+
+There are not required hardware (maybe a least a 486 DX type processor) for 8 bpp color mode.
+But you need a MMX Processor for fullcolor mode (Render_8_Bpp = 0).
+But I recommend you to have a fast processor and a fast 2D video card (3D is not usefull for this plugin).
+MMX is recommend too otherwise because the effects will look not as good without (but not slower :) ).
+
+Hope you'll Enjoy It !!
+
+
+If you have any suggestion, answer or if you like Punkie, don't hesitate to send me an email, Thank you !
+
+mail: dallongevillep@hotmail.com

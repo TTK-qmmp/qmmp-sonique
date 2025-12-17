@@ -1,0 +1,106 @@
+
+--------------------------------------------------------------------
+Pixel Glissade version 2.0 for Sonique
+
+Copyright © 2000 Brian Spangler
+
+email - bspangle@visolu.com
+
+Pixel Glissade Homepage - under construction
+
+Description - Awesome visual exploring the depths of curves, colors and motion with the aid of music
+
+--------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------
+Contents: 
+
+I. Introduction
+II. Installation
+III. History
+IV. Information
+V. Really boring legal stuff
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+I. Introduction
+--------------------------------------------------------------------
+
+Pixel Glissade is based, in part, on my first visualizer Pixel Ballet. Taking recommendations from friends, I decided to give a particular polar transform a visualizer of it's own and thus the name Pixel Glissade. For those who care -- Glissade is a gliding or sliding step in ballet.
+
+Pixel Glissade works with the WaveForm and Spectrum data of Sonique to build images that I hope you will enjoy. Pulsing to the music ... color levels changing with the tempo -- these are just a few things I've attempted to add to bring to the listener a nice complement to the music they enjoy.
+
+Feel free to email me at bspangle@visolu.com.
+
+It's boring but please read the Information section below before using Pixel Glissade.
+
+Happy Viewing 
+Brian
+
+--------------------------------------------------------------------
+II. Installation
+--------------------------------------------------------------------
+1. Create a directory off of your Sonique\vis directory titled PixelGlissade
+2. Copy PixelGlissade.svp and PixelGlissade.txt to this directory
+3. Start Sonique and enjoy.
+
+--------------------------------------------------------------------
+IV. History
+--------------------------------------------------------------------
+Release version 1.0			(11.09.2000)
+	Initial release with beat detection, color morphing and the Glissade Tansform
+Release version 2.0			(11.16.2000)
+	Fixed Bugs
+	Added additional effects to Glissade Transform
+	Added greater color ranges
+
+--------------------------------------------------------------------
+IV. Information
+--------------------------------------------------------------------
+Pixel Glissade is Copyright © 2000 Brian Spangler, All rights are reserved.
+Images generated with Pixel Glissade are Copyright © 2000 Brian Spangler, All rights are reserved.
+
+-------------------------------------------------------------------
+V. Really boring legal stuff (For my protection and yours)
+--------------------------------------------------------------------
+
+TERMS OF USE - COPYRIGHT INFORMATION - PUBLIC DISPLAY
+
+Pixel Glissade is free for personal use only. No registration is required.
+Any commercial use of this program, however, requires the consent of the
+author. Please contact Brian Spangler at bspangle@visolu.com for questions about
+commercial use. 
+Images and/or video sequence generated with this program is Copyright © 2000 Brian Spangler and can not be reproduced or displayed in public without permission.
+
+
+LICENSE AGREEMENT and DISCLAIMER
+
+Please read the follow terms and conditions before using Pixel Glissade. Use of Pixel Glissade will indicate your acceptance of this License.  If you do not agree with these terms and conditions, you should promptly remove Pixel Glissade from your system. This requires you to delete the PixelGlissade runtime file completely.  Please contact Brian Spangler if you have any questions about this license.
+
+The Pixel Glissade Visualization PlugIn (DLL, SVP, Screen Saver, etc.), Documentation, produced images, (hereinafter called "PlugIn") is proprietary to Brian Spangler and is protected by Federal Copyright Law.  Brian Spangler retains the title to and ownership of this PlugIn.  You are licensed to use this PlugIn based on the following terms and conditions.
+
+Grant of Right to Use - The license is defined as the individual utilizing the PlugIn.  This license is not for an entire company but for a single individual.  Brian Spangler hereby grants the licensee a right to personally use and copy the PlugIn free of charge.
+
+RESTRICTIONS - YOU MAY NOT:
+Distribute, rent, sub-license or otherwise make available to others the PlugIn for monetary gain without prior written consent from Brian Spangler. In the case of an authorized transfer the transferee must agree to be bound by the terms and conditions of this License Agreement.
+
+
+US GOVERNMENT RESTRICTED RIGHTS - Use, duplication or disclosure by the United States Government is subject to restrictions under FARS 52.227-14, in FARS 52.227-19 or in DFARS 52.227-7013(c)(1)(ii) Commercial Computer Software - Restricted Rights.
+
+TERM - You may terminate this License and Agreement at anytime, should no violations of the license have occurred, by destroying all copies of the PlugIn and PlugIn documentation. The License will also terminate automatically if you fail to comply with any term or condition of this agreement.
+
+LIMITED WARRANTY
+
+Brian Spangler makes no warranty as to the operational performance of the PlugIn, the accuracy, completeness or usefulness of any information provided with this PlugIn, or the advisability of using the PlugIn in conducting your business. The Provided "as is" without warranty or representation, either express or implied, as to performance, merchantability or fitness for any particular purpose. The licensee assumes the entire risk as to the quality and performance of the PlugIn. 
+
+In no event shall Brian Spangler or anyone else who has been involved in the creation, production or delivery of this PlugIn be liable for any direct, indirect, special, incidental or consequential damages, such as, but not limited to, system problems or damage, loss of anticipated profits, business interruption, benefits, use, or data resulting from the use of this PlugIn. Some states do not allow the exclusions or limitation of direct, incidental or consequential damages so the above limitation may not apply to you.
+In no event shall Brian Spangler or anyone else who has been involved in the creation, production or delivery of this PlugIn be liable for any damages to you for using Pixel Glissade. If you have any medical or health related concerns, do not use this program.
+
+GENERAL - This Agreement is governed by the laws of the Commonwealth of Pennsylvania. If any provisions are held void or unenforceable the remainder shall remain valid and enforceable according to its terms.
+
+THE FOREGOING CONSTITUTES THE ENTIRE LIABILTY OF BRIAN SPANGLER AND EXCLUSIVE REMEDY OR CUSTOMER WITH RESPECT TO ANY CLAIM OR ACTION FOR PATENT, TRADEMARK, AND COPYRIGHT OR TRADE SECRET INFRINGEMENT WITH RESPECT TO THE SOFTWARE.
+
+Copyright © 2000 Brian Spangler

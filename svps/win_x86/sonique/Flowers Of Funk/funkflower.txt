@@ -1,0 +1,55 @@
+ *************************
+ * Flowers Of Funk v1.2b *
+ *************************
+
+author : 
+	This Software is a production of FunkSoft
+	sket (Phill 'Im skinny and green' Tew) 
+	ptew@ptc-integration.com
+	www.cnrufc.co.uk/funk
+
+info : 
+
+	This Plugin was made in about a 3 - 4 hours and is my first fiddle with the sonique vis API it is a basic Spectal anaysis spun round the screen's center clipping @ 65 and multiplyed by 5(? and i can't be bothered to look @ my code) and reflected 8 times. the images r hard coded not generated and applyed the the buffer. hue rotation is no longer faked but enhaced by some of the old (faked) code :P .
+
+Things i wanna do :
+
+	* put in some real hue rotation (done v1.2b)
+	* more inline coding (done v1.2b)
+	* better bass enhancement
+	* options ("for what?" i here u ask "tune in next week!")
+
+Recomended listening / viewing : 
+	Phat Planet - Leftfeild
+	Sunshine underground and/or Music responce - Chemical Brothers
+	Out of the Blue - System F
+	Xpander - Sasha
+	Warhead - DJ Krust
+	Cowgirl - Underworld
+	Brown paper Bag - Roni Size and Reprizent
+	Wheres Jack The Ripper? - Grooverider
+	Mr.Kirks Nightmare - 4 Hero
+	(lot's more im sure)
+
+Cheers to : 
+
+	CoR -> for being nice and help with hue code (cheers bud :) 
+	Loudfactory -> for making me happy :)
+	to Jack Daniels -> for making cheep whisky @ 40% vol :)
+	Adam 'Country Bumkin' Palladino
+	and the rest
+
+Disclamer that i thought i would put in but no one is likely to read :) 
+
+	ALL this code and/or documentation was written By Phill Tew all comments 
+	are a BONUS any person or persons reading this should be aware that i do not    
+	apologize for any Spelling and / or grammer errors and / or incorrect          
+	inappropriate use of the english (or any other for that matter) language       
+	if u happen to find any bugs could u please keep them to your self or send  a  
+	*discrete* mail to me @ [ptew@ptc-integration.com] This Software is not        
+	designed or licensed for use in on-line control of aircraft, air traffic,      
+	aircraft navigation or aircraft communications; or in the design,		
+	construction, operation or maintenance of any nuclear facility, banana boats, 
+	clones of Billy Piper or the reanimation of Walt Disney's head - Phill Tew :P  
+
+The FunkSoft Logo and name are (c)copywrite of Phill Tew 1999.

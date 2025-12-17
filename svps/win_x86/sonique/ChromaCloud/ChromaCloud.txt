@@ -1,0 +1,29 @@
+// *****************
+// *  ChromaCloud  *
+// *****************
+
+A Sonique Visualization Plugin
+by Feldspar
+(c) 2000 Alec Bellanca
+
+
+Description:
+------------
+A cloud of particles that dance to the music!
+
+
+Recommended Configuration:
+--------------------------
+Works best with blur and smoke fx set to medium.
+
+
+Options:
+--------
+None.
+
+
+Contact info:
+-------------
+Questions/comments/statements/manifestos go to: alec@cutlassdesign.com
+
+Have Fun!

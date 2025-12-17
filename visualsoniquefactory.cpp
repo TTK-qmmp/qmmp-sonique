@@ -31,8 +31,9 @@ void VisualSoniqueFactory::showAbout(QWidget *parent)
 {
     QMessageBox::about(parent, tr("About Sonique Visual Plugin"),
                        tr("Qmmp Sonique Visual Plugin") + "\n" +
-                       tr("This plugin adds Sonique visualization") + "\n" +
-                       tr("Written by: Greedysky <greedysky@163.com>"));
+                       tr("Written by: Greedysky <greedysky@163.com>") + "\n" +
+                       tr("Based on the source code from the Soniqueviewer") + "\n" +
+                       tr("Written by juanmv94 Juan (C) 2019"));
 }
 
 QString VisualSoniqueFactory::translation() const

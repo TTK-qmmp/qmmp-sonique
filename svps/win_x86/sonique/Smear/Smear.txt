@@ -1,0 +1,181 @@
+Smear 1.2	for Sonique			created by mykel and xplo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+About
+-----
+	We are back, and stronger than ever. You've wondered why there is
+	no geiss for Sonique?  You've seen starwave and thought "Hey cool!
+	But It could do more :/"? Well it CAN do more and the vis that came
+	out after mykel took a look at its core is Smear. After a few days
+	of (painful) coding hours we're standing right in front of one of
+	the probably biggest visual projects ever done for Sonique. Ok ok..
+	soo... what does it do? Well, it ships with a few "scripts" that we
+	wrote for you. Smear now takes these Scripts, combines them and shows
+	them to you in a way that will knock you out of your socks. :) Over the
+	following days more and more details were added and new commands and
+	possibilities were put into the script language. But enough of me
+	talking and talking, go check out the vis!
+
+FAQ
+---
+
+Q: But isn't this just G-Force for Sonique?
+A: In its features it is a G-Force equivalent for Sonique, but it is not a
+   rebadged version of the plugin.  See the section "Smear and G-Force"
+   below for more information.
+
+Q: How do I make new scripts myself?
+A: The best way to learn the script language is to read the stutter.txt, then
+   look at existing scripts with a texteditor.
+
+Q: So, I've got a script, but I can't tell if it's working
+A: The first thing that you should do is move all the other scripts of the
+   same type out of the directory that Smear is looking for them, so that
+   your script is the only one it can use.  I tend to make a directory under
+   the current directory and move them there, as Smear does not descend into
+   sub directories.  Assuming that the script is grammatically correct, it
+   will be loaded and run as the only possibility.  If the script has an
+   error in it, unfortunately, it won't be loaded, and a default script will
+   be loaded instead, so you have to be sure that your script is grammatically
+   correct.
+
+Q: I've got a script working and it looks pretty. How can I distribute it?
+A: The best way would be to email the script to an author (or best to both).
+   Depending on how much scripts we get from you guys we might make some 
+   compilations of the submitted scripts. (But please only submit really new
+   scripts that eren't just our ones with a some changed scaling or similar)
+
+Q: So how do a debug simple errors in my script if Smear won't even load
+   them?
+A: Usually when smear finds a script with an error it will silently skip it,
+   however there is a configuration option in the VIS.INI file called
+   "Debug Sciprts (True-False)".  If this is set to True then a error
+   box will pop up during the initialisation process for each script with
+   an error.
+
+Q: What is the naming convension for scripts?
+A: Each type of script must not only be in the correct directory, but must
+   also have the correct file extension in order to be used by Smear.  All
+   the script directories are directly below the directory that contains
+   the actual smear visual plugin.  There are four types of script
+
+       Script Type             Directory               Extension
+       ---------------------------------------------------------
+       Move Map                Moves                   .sms
+       Color Map               Color                   .scs
+       Particle Script         Particle                .sps
+       Waveform Script         Waveform                .sws
+
+Q: Sometimes smear really slows down for a few seconds, then gets fast again, how
+   can I prevent that?
+A: On some slower computers crossfading of Movemaps can slow down the vis very much.
+   If this happens for you, edit the vis.ini and set the value for: 
+   "Movemap Fade Time (1/10ths of seconds)="
+   to something really low like "1". (For details and instructions look below)
+
+Q: What are the configuration options?
+A: There are a number of configuration options that are settable in the sonique
+   vis.ini file.  They are as follows:
+
+     Movemap Hold Time (1/10ths of seconds)=??
+     	This is how long a particular move map will be used before a new one
+	is displayed.  Smear will not let you set the value very low, and it
+	will only use the value you do set as a guide.
+
+	Note: with this, as with all the time based configuration options,
+	Smear will only use the figure given as a guide, the actual value
+	will be +/- 50% each time it is used.
+
+     Movemap Fade Time (1/10ths of seconds)=??
+        This is how long to spend fading between one move map and the next.
+
+     Colormap Hold Time (1/10ths of seconds)=??
+     	How long to use a specific colormap script.
+
+     Colormap Fade Time (1/10ths of seconds)=??
+     	How long to spend fading between the current color map and the next
+	one.
+
+     Waveform Hold Time (1/10ths of seconds)=??
+     	How long to use a specific waveform script before chaning to another.
+
+     Waveform Fade Time (1/10ths of seconds)=??
+     	How long to spend 'fading' between one waveform script and the next
+	one.
+
+     Particle Hold Time (1/10ths of seconds)=??
+     	How long to display a particle script for.
+
+     Particle Fade Time (1/10ths of seconds)=??
+     	How long to spend fading in or fading out a particular particle script.
+
+     Particle Chance per Frame (0-100)=??
+     	What chance there is, per second, of a new particle starting.  For
+	each particle that is currently running, this chance is reduced by
+	a factor of itself (for example, if the base percentage is 10%, then
+	there is a 1% chance of two running at once and a 0.1% chance of
+	three).  Of course probability being the fickle thing this is, you'll
+	get 3 at once often enough.
+
+     Letter Box Percentage (10-100)=??
+     	The height will never exceed the width multiplied by the letterbox
+	percentage.  Values of around 35-50 give a good 'letterbox' look
+	and allow for higher resolution or higher framerates when in full
+	screen mode.
+
+     Show Titles (True-False)=??
+     	If true then whenever a new song is played the song title (and
+	artist) is displayed.
+
+Credits
+-------
+Mykel
+mykel@earthling.net
+xplo
+xplo@xplo.org
+
+Thanks to:
+  Andy O'Meara, for creating G-Force, and being very inspiring.
+  The Sonique Crew, for creating such a kickass player.
+
+Smear and G-Force
+-----------------
+When we were creating this visual plugin many concepts were borrowed from
+Andy O'Meara's excellent win/macamp plugin 'G-Force'.  Also, the logic behind
+the a number of the waveform, movemap and colormap scripts was used to create
+scripts for use in Smear.  Through a serious oversight and lack of forward
+planning, we failed to contact Andy to get his blessing.  This, combined
+with the fact we failed to correctly attribute the contribution that the
+'G-Force' plugin had to the development has lead to some thinking that
+we are trying to take credit for the work that Andy did.
+
+I will try to credit the various parts of the plugin to those
+responsible as best as possible
+
++ 'bluring/fading/movemaps'.  I cannot credit this anywhere specifically,
+  as the concept of movemaps and blurs occurs in a number of plugins,
+  and indeed within Sonique iteself.
+
++ scripted movemaps, colormaps, waveforms, particles.  While the original
+  idea for these was suggested by xplo, during the development of what was
+  at the time "starwave2", the available types of script and some of the
+  requirements for each type of script can be accredited to G-Force.
+  For example, the ability to write movemap scripts using polar rather
+  than cartesian coordinates, the use of HSV rather than RGB colors and
+  the method of implementing multiple waveforms and multiple particles
+  were ideas taken from observing G-Force's scripts.
+
++ the scripts.  A number of the scripts were converted from the G-Force 
+  scripting language to the Smear scripting language.  Most of these
+  failed to be correctly credited, for which we are sorry, and will
+  endeavour to rectify before the next release of this software.
+
++ the code.  The actual plugin code (writen in C) is almost 100% original.
+
+The ideas for this visual plugin are not original.  They are taken from
+a number of other sources, particularly from G-Force, but also from other
+plugins such as Geiss, Starwave, AcidSpunk and an unreleased sonique
+plugin with the imaginative name of 'simple'.  Our intension was to supply
+a visual of the same level of quality as G-Force, and others, to the
+Sonique player.
+
+We are sorry for any frustration or annoyance we may have caused Andy.

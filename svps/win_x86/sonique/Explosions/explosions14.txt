@@ -1,0 +1,46 @@
+------------------------------
+|      Explosions 1.4        |
+|                            |
+|    Robert Wenzel (CoR)     |
+|                            |
+------------------------------
+
+1.4 bug removed (before it crashed with some skins - clipping error)
+
+1.3 features more realistic and changeable colors
+
+1.2 includes better synch to music !! (adjustable)
+
+
+It shows explosions detonating to the music.
+Coding was fun because it was so simple.
+The code flew aout of my hands like nothing.
+I think it is because of the many eMails I
+got last days which made me grow in confidence.
+
+Thanks you all !!!!!!
+
+In vis.ini you can change the max number of
+explosion particles for performance reasons.
+
+default = 500
+
+Now you can also adjust the volume sensitivity
+to change the explosions origin to the beat.
+
+default = 40 (the less the value is, the more often the
+		new explosion changes it's origin);
+
+
+color 0 - 4 define the colors of the palette 
+            in  r g b - order (hexadecimal)
+
+color Smoothness determines the smoothness of the palette
+default 170
+
+
+Have fun and enjoy
+
+ - CoR -
+
+contact me at:   wenzel.robert@gmx.de

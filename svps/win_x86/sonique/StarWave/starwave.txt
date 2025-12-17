@@ -1,0 +1,84 @@
+starwave 1.0  for Sonique                         created by Samuel Graenacher
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. About/History
+2. Requirements
+3. Configuring Options
+4. FAQ (Frequently Asked Questions)
+5. Everything Else
+_________________________________________________
+
+1. About/History
+~~~~~~~~~~~~~~~~~
+	I first saw this effect in a german PCMag (you own PCMagazin ;D) coded by
+	Nils Pipenbrinck when they were introducing vis plugin programming for winamp.
+	The 'simple' movelist effect amazed me so I decided to port it to sonique.
+	As for the performance it's a lot less resource consuming than my previous
+	plugins. It should run quite well on any decent system (assuming you don't run
+	in huge fullscreen modes).
+
+2. Requirements
+~~~~~~~~~~~~~~~~
+	Really not much, runs quite fine with most systems.
+	Tends to get a bit messy when you play loud music and have it running in small
+	vis areas such as vismode.
+
+3. Configuring Options
+~~~~~~~~~~~~~~~~~~~~~~~
+	If you have Sonique 1.0x+ the settings of the plugins get stored in the file called
+	vis.ini in your Sonique directory each time you close Sonique.
+	NOTE:	When you edit vis.ini while sonique is running be sure to save your changes
+		AFTER you closed Sonique. WetNad will save (and overwrite old ones!) the settings
+		it currently uses each time Sonique is closed.
+	Here are the descriptions of the Config keys:
+	
+	[starwave]
+	
+	DrawSweep=1
+		; Wether to draw the random screen-sweeps or not (1=ON, 0=OFF, default=ON)
+	
+	CycleColors=1
+		; Cycle through the colors or use a fixed one (1=cycle, 0=fixed, default=cycle)
+	
+	FixedColorR=255
+	FixedColorG=255
+	FixedColorB=255
+		; Red Green and Blue values of the color to use when using FixedColor mode.
+
+4. FAQ
+~~~~~~~
+Q: How do I install this plugin?
+A: Copy the file called "starwave.svp" into the Folder called "Vis" in your Sonique Folder.
+   If you recieved this as a Executable file just doubleclick on it and your are set.
+
+Q: I don't have a vis.ini in my Sonique Folder?
+A: You probably are running an old version of Sonique. In this case the settings are
+   stored in c:\windows\sonique.ini
+
+Q: Will there be new versions with more features?
+A: Not sure yet.
+
+Q: My changes to vis.ini seem to be ignored. What do I do wrong?
+A: Be sure to save your changes AFTER(!) you closed Sonique.
+
+Q: Can I have the source??
+A: No. Two reasons: 1) It's incredibely messy right now. 2) I just don't feel like it.
+
+Q: What did you program this plugin in?
+A: Microsoft Visual C++ 6
+
+Q: I have a few ideas for the plugin. Can I tell them to you?
+A: Yes. Feel free to email any comments, bug reports, ideas, suggestions to xplo@xploded.net
+
+5. Everything Else
+~~~~~~~~~~~~~~~~~~~
+	Greetings to: Nils Pipenbrinck (creator of the original winamp version),
+		      the crews #sonique and #mp3 on irc.mircx.com,	              
+		      mykel,
+		      SexoSonic,
+	              pX and HB and Scirocco (for making such a kickass player),
+	              shock,
+		      HB (watervis owns (although it's a lot slower than my water algo) ;) j/k), 
+		      CoR (liquid is a great vis, btw you should visit us sometimes :))
+		      and everyone i forgot at the moment.
+
+	Bug reports, questions, comments, ideas to xplo@xploded.net

@@ -1,0 +1,45 @@
+**========================**
+||                        ||
+||    The Rabbit Hole     ||
+||                        ||
+||      Version 1.0       ||
+||                        ||
+**========================**
+
+By: Feldspar (Alec Bellanca)
+Email: feldspar@clanufm.com
+
++--                --+
+|    DESCRIPTION     |
++--                --+
+
+     The Rabbit Hole is an advanced visualization plugin for the Sonique 
+media player.  It shows you flying through a tunnel with colorful and 
+ever-changing patterns of light and geometry as it spins, flashes, and 
+moves to the beat of the music.
+
+     The Rabbit Hole is entirely powered by sound.  The colors, textures, 
+shapes, and effects are all determined by different aspects of the music 
+that is playing.  It will produce a unique combination of effects for 
+every type of music.  Additionally, the beat detection algorithms attempt 
+to respond to active spectrum frequencies in order to complement the rhythm 
+appropriately.
+
++--                --+
+|   CONFIGURATION    |
++--                --+
+
+There are presently no options to configure.
+
++--                --+
+| ADDITIONAL CREDITS |
++--                --+
+
+Many thanks to Robert Wenzel (CoR) for help with the gfx algos, and 
+inspiration from his many excellent visuals.
+
+Miscellaneous special thanks go out to:
+Ashok Adam Cole Danielle Erik Jeff Jon Lucy Mary Max Max Steve Steve Wes
+
+
+Copyright (C) 2001 Alec Bellanca. All rights reserved.

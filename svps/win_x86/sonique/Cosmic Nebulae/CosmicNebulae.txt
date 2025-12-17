@@ -1,0 +1,47 @@
+O----------------------------O
+|  Cosmic Nebulae (concept)  |
+|                            |
+| a Sonique visual plugin by |
+|                            |
+|    Robert Wenzel (CoR)     |
+|                            |
+|   coded in may/june 2000   |
+O----------------------------O
+
+Hi sonique users...
+
+you'll need MMX to run this visual !
+
+this is the visual concept of Cosmic Nebulae, 
+The vis itself is not a new concept but it has
+one new aspect: this vis has no fixed movemaps
+like smear and acidspunc have several and nice
+ones (I think both are great visuals !!!).
+
+This one smoothly zoomes and rotates the 
+background and draws some pixels onto it...
+Like this it can have more synch to music.
+looks best with hiphop, drum'n'bass, techno and 
+most mods.
+
+I just felt I won't have much time to work on
+this concept in near future... so I'll release
+this version - otherwise it would lay around here.
+
+So I hope you'll like it...
+
+my favourite resolution is 512x368 32bpp fullscreen
+on a PIII 500
+
+!!!!!
+Watch it wearing sunglasses, but be sure only to
+cover ONE eye by the sun glasses...
+
+Try this with cosmic belt too !!
+!!!!!
+
+
+CoR
+
+
+Thanks to HB for help with MMX !!!

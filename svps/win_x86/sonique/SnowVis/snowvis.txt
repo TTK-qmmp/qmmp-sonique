@@ -1,0 +1,45 @@
+Snowvis 1.10 - Sonique Visualisation Plugin
+	Created by mykel
+
+Contact: mykel@earthling.net
+
+Description/Instructions:
+	It must be christmas.  Strange that someone who lives in
+	the Southern hemisphere is writing a vis that has snow
+	as some sort of a christmas theme.  Never mind, it's
+	pretty.
+
+Config:
+	The following configuration options for the faited plugin are
+	available in the [snowvis] section on the vis.ini file.
+
+	NoBigFlakes=0 or 1
+		If 1 then there are none of the larger 'stylized'
+		flakes.
+
+	NoInternals=0 or 1
+		If 1 then the internal images are used and only
+		those found in the directory are used for backgrounds.
+		See below.
+
+	Shaker=0 or 1
+		If 1 then snow doesn't fall unless you shake the
+		sonique window.  A real life snow dome.
+
+	Also, additional background images can be used in conjuction
+	with, or instead of, the ones supplied.  Simply place the
+	files (which must be jpg files) in the same directory as
+	the snowvis.svp file.  The files probably should be about
+	300x200 in size, but theoretically most should work.
+
+	UPDATE: I forgot to mention, the files must have a filename
+	that matches SnowVis_*.jpg (e.g. SnowVis_MyImage.jpg)
+
+	Also, if you are running sonique version 1.30 or later you
+	can add a handful of snow by clicking on the vis window in
+	vis mode.
+
+	Enjoy
+
+Comments, questions, suggestions, abuse all welcome at
+	mykel@earthling.net

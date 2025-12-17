@@ -1,0 +1,24 @@
+     - Tornado 1.1 -
+
+a Sonique visual plugin by
+
+   Robert Wenzel (CoR)
+
+ written in about 2 days.
+
+
+This plugin rotates and distorts a basic form according to the music
+using the spectrum analyser for colors and rotation speed.
+(Sorry no changes possible, effect, blur and zoom are turned off)
+But I think it's a very cool effect.
+
+It looks best with powerful music (Hip-Hop, Techno, Metal)
+just loud music with many changes in the base and heights.
+
+It is very processor intensive for the picture is rendered pixel by pixel.
+Should look good on a P200 or higher.
+
+contact me at:   wenzel.robert@gmx.de
+
+the file   TornadoVis11.svp is the original effect and
+the plugin TornadoBVis11.svp is another sightly modified clone of that effect !!!

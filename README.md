@@ -1,5 +1,7 @@
 This is a plugin for Qmmp (1.6.0 or greater) visual.
 
+Based on [Soniqueviewer](https://github.com/juanmv94/Soniqueviewer), SVP files yon can find [here](svps).
+
 ![Image](https://github.com/TTK-qmmp/qmmp-sonique/blob/master/image/1.png?raw=true)
 
 The following packages are required, including development headers,

@@ -1,0 +1,37 @@
+Marbles 1.01 - Sonique Visualisation Plugin
+	Created by mykel
+
+Contact: mykel@earthling.net
+
+Description/Instructions:
+	Sparkling, pulsing marbles with with waveform through the
+	centre.  Looks ok with or without any of the additional
+	effects.  I tend to use it with blur and smoke at about 75%,
+	or full screen 32-bit with no effects.
+
+	This one is quite a processor hog.  Sorry if your machine isn't
+	up to the task of making it look ok.
+
+Config:
+	The following configuration options for the faited plugin are
+	available in the [marbles] section on the vis.ini file.
+
+	StaticColour=0 or 1
+		If 1 then the marbles stay blue and red, otherwise
+		they cycle through various colours.
+
+	Cloudy=0 or 1
+		If 0 then the marbles are completely transparent.
+		All you have are the sparkles on the surface and
+		the waveform through the centre.  Much faster, but
+		loses alot of the feel.
+
+	Sparkles=0 or 1
+		If 0 then the surface sparkles are not shown.
+
+	Wavelines=0 or 1
+		If 0 then the internal waveform is not shown.
+
+Comments, questions, suggestions, abuse all welcome at
+	mykel@earthling.net
+

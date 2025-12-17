@@ -1,0 +1,16 @@
+Burn 1.10 - Sonique Visualisation Plugin
+	Created by mykel
+
+Contact: mykel@earthling.net
+
+Description/Instructions:
+	A simple file that grows and fades with the music.
+
+Config:
+	None, I'm afraid.  Although on version 1.30 and later of sonique
+	there is a click effect to add some embers to the fire.
+
+	Enjoy
+
+Comments, questions, suggestions, abuse all welcome at
+	mykel@earthling.net

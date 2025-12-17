@@ -1,0 +1,30 @@
+Visual Star Performance-up Version (Internal Ver. NO. 1,1,0,1)
+	A Soniuqe visual plugin
+	by Ranran
+==================================================================
+Brief Description:
+	This is performance up verion of Visual Star.
+
+Changes:
+	1. PERFORMANCE UP
+	  I confirm this version work without sound skip(?) on 
+	 fullscreen mode(1024x768).
+	 My computer spec is PentiumII 366MHz and Memory 96MBytes.
+	 ANd NotePC.
+	2. Initial setting is changed
+	  This is very little change. I found good BASSCOLOR and 
+	 BASSLEVEL. So I configured it. New setting is saved at
+	 [Visual Star+]. If you want to use your own setting, 
+	 please change [Visual Star] to [Visual Star+] in VIS.ini.
+
+New HomePage:
+	I created new home page. This home page is written in English.
+	But my ugly English... Sorry. Anyway check it please.
+
+	http://plugins.vertualave.net/
+
+Contact:
+	YRL04701@nifty.ne.jp
+	http://plugins.virtualave.net/
+
+	Thank you for download my plugin. Enjoy!
