@@ -13,6 +13,27 @@
 #  define QtAddAction(p, a, b, c, d) p->addAction(a, b, c, d)
 #endif
 
+static void adjustMenuPosition(QMenu *menu)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5,12,0)
+    QPixmap pix(15, 15);
+    pix.fill(Qt::transparent);
+
+    const QList<QAction*> actions(menu->actions());
+    if(!actions.empty())
+    {
+        QAction* action(actions.first());
+        if(action->icon().isNull())
+        {
+            action->setIcon(pix);
+        }
+    }
+#else
+    Q_UNUSED(menu);
+#endif
+}
+
+
 SoniquePlugin::SoniquePlugin(QWidget *parent)
     : Visual(parent)
 {
@@ -55,6 +76,8 @@ SoniquePlugin::SoniquePlugin(QWidget *parent)
     QtAddAction(m_menu, tr("&Next Preset"), m_container, SLOT(nextPreset()), {"N"});
     QtAddAction(m_menu, tr("&Previous Preset"), m_container, SLOT(previousPreset()), {"P"});
     QtAddAction( m_menu, tr("&Random Preset"), m_container, SLOT(randomPreset()), {"R"});
+
+    adjustMenuPosition(m_menu);
 
     m_timer = new QTimer(this);
     m_timer->setInterval(40);
