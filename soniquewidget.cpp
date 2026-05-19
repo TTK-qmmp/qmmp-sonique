@@ -268,7 +268,7 @@ void SoniqueWidget::initialize()
     const QString &dir = QCoreApplication::applicationDirPath() + "/../share/sonique";
 # endif
 #else
-    const QString &dir = Qmmp::configDir() + "/sonique";
+    const QString &dir = Qmmp::pluginPath() + "/../../../share/sonique";
 #endif
     const QFileInfoList folderList(fileListByPath(dir, {"*.svp"}));
     for(const QFileInfo &fin : folderList)
