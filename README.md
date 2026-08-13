@@ -1,4 +1,4 @@
-This is a plugin for Qmmp (1.6.0 or greater) visual.
+This is a visualization plugin for Qmmp (1.6.0 or later).
 
 Based on [Soniqueviewer](https://github.com/juanmv94/Soniqueviewer), SVP files yon can find [here](svps).
 
